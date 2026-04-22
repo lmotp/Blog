@@ -1,0 +1,130 @@
+@use '../../settings/tokens' as *;
+
+.posts-page,
+.post-page {
+  display: grid;
+  gap: 24px;
+}
+
+.posts-page__header,
+.post-page__header {
+  display: grid;
+  gap: 10px;
+}
+
+.posts-page__eyebrow,
+.post-page__eyebrow {
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: $brand-strong;
+}
+
+.posts-page__title,
+.post-page__title {
+  margin: 0;
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.1;
+  color: $foreground;
+}
+
+.posts-page__lead,
+.post-page__lead {
+  margin: 0;
+  max-width: 64ch;
+  color: $text-subtle;
+  line-height: 1.7;
+}
+
+.posts-page__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.post-card__header {
+  display: grid;
+  gap: 6px;
+}
+
+.post-card__category {
+  margin: 0;
+  color: $brand-strong;
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.post-card__title {
+  margin: 0;
+  color: $foreground;
+  font-size: 1.15rem;
+  line-height: 1.35;
+}
+
+.posts-page__date,
+.post-page__meta {
+  margin: 0;
+  font-size: 0.92rem;
+  color: $text-muted;
+}
+
+.post-card__date {
+  margin: 0;
+  font-size: 0.92rem;
+  color: $text-muted;
+}
+
+.post-card__description {
+  margin: 12px 0 0;
+  color: $text-subtle;
+  line-height: 1.7;
+}
+
+.post-page__article {
+  padding: 28px;
+  border-radius: $rounded-xl;
+  background: $surface-elevated;
+  border: 1px solid $border-soft;
+  box-shadow: $shadow-card;
+}
+
+.post-page__article :is(h1, h2, h3, h4) {
+  margin-top: 1.8em;
+  margin-bottom: 0.6em;
+  line-height: 1.2;
+  color: $foreground;
+}
+
+.post-page__article p,
+.post-page__article li {
+  color: $text-subtle;
+  line-height: 1.8;
+}
+
+.post-page__article pre {
+  overflow-x: auto;
+  padding: 18px;
+  border-radius: $rounded-lg;
+  background: #0f172a;
+  color: #f8fafc;
+}
+
+.post-page__article code {
+  padding: 0.15em 0.35em;
+  border-radius: 4px;
+  background: rgba(53, 197, 240, 0.12);
+  color: $brand-strong;
+}
+
+@media (max-width: 1024px) {
+  .posts-page__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .post-page__article {
+    padding: 20px;
+  }
+}

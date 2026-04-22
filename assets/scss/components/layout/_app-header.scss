@@ -1,24 +1,25 @@
-@use '../../settings/tokens' as *;
+@use "../../settings/tokens" as *;
 
 .app-header {
   position: sticky;
-  top: 16px;
+  top: 0;
   z-index: 20;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 24px;
-  padding: 18px 22px;
-  border-radius: 18px;
-  background: rgba(255, 255, 255, 0.82);
+  display: grid;
+  grid-template-rows: auto auto 1fr;
+  gap: 28px;
+  align-content: start;
+  padding: 28px 22px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.96) 0%, rgba(246, 250, 255, 0.96) 100%);
   border: 1px solid $border-soft;
-  box-shadow: $shadow-float;
+  box-shadow: $shadow-card;
+  height: 100dvh;
   backdrop-filter: blur(18px);
+  overflow: auto;
 }
 
 .app-brand {
   display: grid;
-  gap: 4px;
+  gap: 6px;
 }
 
 .app-brand-mark {
@@ -40,34 +41,89 @@
 }
 
 .app-nav {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
+  display: grid;
+  gap: 8px;
+  padding-top: 4px;
 }
 
 .app-nav-link {
-  padding: 10px 14px;
-  border-radius: 9999px;
+  position: relative;
+  padding: 14px 14px 14px 18px;
+  border-radius: 18px;
   color: $text-subtle;
   font-weight: 700;
+  background: $surface-elevated;
+  border: 1px solid $border-soft;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8);
   transition:
     transform 0.2s ease,
     background 0.2s ease,
     color 0.2s ease;
 
   &:hover {
-    transform: translateY(-1px);
-    background: $brand-soft;
+    transform: translateX(4px);
+    background: rgba(53, 197, 240, 0.08);
     color: $brand-strong;
   }
 
   &.router-link-active {
     background: $brand;
     color: $brand-contrast;
+    border-color: transparent;
   }
 
   &.router-link-exact-active {
     background: $brand;
     color: $brand-contrast;
+    border-color: transparent;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    width: 4px;
+    height: 4px;
+    border-radius: 9999px;
+    transform: translateY(-50%);
+    background: rgba(53, 197, 240, 0.32);
+    transition: background 0.2s ease;
+  }
+
+  &.router-link-active::before,
+  &.router-link-exact-active::before {
+    background: rgba(255, 255, 255, 0.9);
+  }
+}
+
+.app-sidebar-note {
+  display: grid;
+  gap: 8px;
+  align-self: end;
+  padding-top: 16px;
+  border-top: 1px solid $border-soft;
+}
+
+.app-sidebar-note__title {
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: $brand-strong;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.app-sidebar-note__text {
+  font-size: 0.94rem;
+  line-height: 1.6;
+  color: $text-subtle;
+}
+
+@media (max-width: 1024px) {
+  .app-header {
+    position: static;
+    max-height: none;
+    min-height: 0;
+    top: auto;
   }
 }

@@ -18,14 +18,13 @@ npm run dev
 - `components/layout`: app shell components
 - `components/base`: low-level building blocks
 - `components/home`: home page sections
-- `components/documents`: documents page sections
-- `components/notes`: notes page sections
-- `components/search`: search page sections
+- `components/posts`: blog post page sections
 - `components/error`: error page sections
 - `layouts`: Nuxt layout components
-- `pages`: IA-based routes for home, documents, notes, and search
+- `pages`: routes for home and posts
+- `content/posts`: Markdown blog posts rendered by Nuxt Content
+- `content.config.ts`: Nuxt Content collection definitions
 - `server/api`: BFF routes
-- `server/data`: mock server data
 - `plugins`: Nuxt plugins such as TanStack Query
 - `composables`: reusable query helpers
 - `stores`: Pinia stores

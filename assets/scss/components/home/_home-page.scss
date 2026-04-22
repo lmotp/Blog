@@ -5,10 +5,48 @@
   gap: 24px;
 }
 
+.home-page__posts {
+  display: grid;
+  gap: 20px;
+}
+
+.home-page__posts-header {
+  display: grid;
+  gap: 8px;
+}
+
+.home-page__posts-eyebrow {
+  margin: 0;
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: $brand-strong;
+}
+
+.home-page__posts-title {
+  margin: 0;
+  font-size: clamp(1.4rem, 2.2vw, 2rem);
+  color: $foreground;
+}
+
+.home-page__posts-lead {
+  margin: 0;
+  color: $text-subtle;
+  line-height: 1.7;
+}
+
+.home-page__posts-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
 @media (max-width: 760px) {
   .home-features,
   .home-stats,
-  .home-testimonials {
+  .home-testimonials,
+  .home-page__posts-grid {
     grid-template-columns: 1fr;
   }
 }

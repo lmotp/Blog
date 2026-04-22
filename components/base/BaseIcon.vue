@@ -21,7 +21,6 @@ const glyphMap: Record<string, string> = {
   arrowRight: '→',
   chevronDown: '⌄',
   menu: '☰',
-  search: '⌕',
 }
 
 const glyph = computed(() => glyphMap[props.name] ?? '•')

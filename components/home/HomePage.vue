@@ -3,11 +3,10 @@
     <HomeHero
       eyebrow="홈"
       title="Blog"
-      lead="문서 수집, 읽기 상태 관리, 정리와 발행이 이어지는 개인 블로그 IA입니다."
+      lead="Markdown 글을 중심으로 정리와 발행이 이어지는 개인 블로그입니다."
     >
       <template #actions>
-        <BaseButton to="/documents">문서 보기</BaseButton>
-        <BaseButton to="/notes" secondary>노트 보기</BaseButton>
+        <BaseButton to="/posts">글 보기</BaseButton>
       </template>
     </HomeHero>
 
@@ -16,50 +15,71 @@
     <HomeTestimonials :quotes="quotes" />
 
     <HomeCTA
-      lead="지금 구조를 기준으로 읽기와 발행의 흐름을 이어가세요."
-      title="문서 큐를 정리하고 노트로 연결하기"
+      lead="Markdown 파일 하나를 추가하면 글 목록과 상세 페이지가 함께 생깁니다."
+      title="이제 글은 content/posts에 작성하면 됩니다."
     >
-      <BaseButton to="/documents">문서로 이동</BaseButton>
-      <BaseButton to="/search" secondary>검색하기</BaseButton>
+      <BaseButton to="/posts">글 목록 보기</BaseButton>
     </HomeCTA>
+
+    <section class="home-page__posts">
+      <header class="home-page__posts-header">
+        <p class="home-page__posts-eyebrow">최근 글</p>
+        <h2 class="home-page__posts-title">Markdown으로 작성한 실제 게시물</h2>
+        <p class="home-page__posts-lead">
+          `content/posts`에 넣은 md 파일이 여기와 글 목록 페이지에 그대로 반영됩니다.
+        </p>
+      </header>
+
+      <div class="home-page__posts-grid">
+        <PostCard v-for="post in recentPosts" :key="post.path" :post="post" />
+      </div>
+    </section>
   </section>
 </template>
 
 <script setup lang="ts">
+import type { BlogPost } from '~/types/blog'
 import HomeCTA from './HomeCTA.vue'
 import HomeFeatures from './HomeFeatures.vue'
 import HomeHero from './HomeHero.vue'
 import HomeStats from './HomeStats.vue'
 import HomeTestimonials from './HomeTestimonials.vue'
+import PostCard from '~/components/posts/PostCard.vue'
 
-const features = [
+  const features = [
   {
-    title: '문서',
-    description: '읽을 문서, 읽는 중, 읽은 문서를 분리해서 관리합니다.',
+    title: '글',
+    description: 'Markdown 파일을 content/posts에 넣으면 바로 글로 노출됩니다.',
   },
   {
-    title: '노트',
-    description: '개념 정리, 번역, 실험 기록을 발행물로 묶습니다.',
-  },
-  {
-    title: '검색',
-    description: '문서와 노트를 함께 빠르게 찾습니다.',
+    title: '레이아웃',
+    description: '공통 헤더와 본문 구조를 Nuxt 레이아웃으로 유지합니다.',
   },
 ]
 
 const stats = [
-  { label: '중심 흐름', value: '수집 → 읽기 → 정리 → 실험' },
-  { label: '제외 메뉴', value: '소개, 태그, 요약 노트, 프로젝트' },
+  { label: '중심 흐름', value: '작성 → 정리 → 발행' },
+  { label: '운영 방식', value: 'md + Nuxt Content' },
 ]
 
 const quotes = [
   {
     author: '운영 원칙',
-    quote: '문서는 수집과 상태 관리 중심, 글은 정리와 발행 중심',
+    quote: '글은 Markdown으로 쓰고 화면은 Nuxt가 책임진다',
   },
   {
     author: '파생 구조',
-    quote: '하나의 원문에서 여러 노트가 파생될 수 있어야 함',
+    quote: '하나의 md 파일이 목록과 상세를 함께 만든다',
   },
 ]
+
+const { data: posts } = await useAsyncData('home-posts', () => {
+  return queryCollection('posts')
+    .select('path', 'title', 'description', 'category', 'date')
+    .order('date', 'DESC')
+    .limit(3)
+    .all<BlogPost>()
+})
+
+const recentPosts = computed(() => posts.value ?? [])
 </script>

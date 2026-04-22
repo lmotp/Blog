@@ -13,18 +13,22 @@
 @use './components/home/home-stats';
 @use './components/home/home-testimonials';
 @use './components/home/home-cta';
-@use './components/documents/documents-page';
-@use './components/notes/notes-page';
-@use './components/search/search-page';
+@use './components/posts/posts-page';
 @use './components/error/error-page';
 
 :root {
   color-scheme: light;
   font-family:
-    'Plus Jakarta Sans', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
-    'Segoe UI', sans-serif;
+    'Pretendard', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    sans-serif;
   background: #f6faff;
   color: #171c20;
+}
+
+html,
+body,
+#__nuxt {
+  overscroll-behavior-y: none;
 }
 
 body {
