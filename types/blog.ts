@@ -1,7 +1,8 @@
 export interface BlogPost {
-  id: number
+  path: string
   title: string
-  summary: string
+  description: string
   category: string
-  publishedAt: string
+  date: string
+  cover?: string
 }
