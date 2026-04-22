@@ -37,6 +37,7 @@ SCSS, TypeScript, Pinia, and TanStack Query are enabled through the installed de
 
 GitHub Pages 기준으로 배포할 수 있도록 구성했습니다.
 
+- `dev` 브랜치에서 작업하고, `main`으로 PR을 올리는 흐름을 사용합니다.
 - PR마다 GitHub Pages용 정적 빌드를 실행합니다.
 - `main` 브랜치에 푸시되면 GitHub Actions가 정적 산출물을 만들어 GitHub Pages로 배포합니다.
 
