@@ -1,0 +1,107 @@
+@use './tokens' as *;
+
+@mixin stack($gap: 18px) {
+  display: grid;
+  gap: $gap;
+}
+
+@mixin eyebrow($color: $brand-strong, $size: 0.78rem) {
+  margin: 0;
+  color: $color;
+  font-size: $size;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+@mixin page-title($size: clamp(2.4rem, 4vw, 3.6rem), $line-height: 1.08) {
+  margin: 0;
+  color: $foreground;
+  font-size: $size;
+  line-height: $line-height;
+  font-weight: 800;
+}
+
+@mixin lead($max-width: 68ch, $size: 1rem) {
+  margin: 0;
+  max-width: $max-width;
+  color: $text-subtle;
+  font-size: $size;
+  line-height: 1.8;
+}
+
+@mixin meta {
+  margin: 0;
+  color: $text-muted;
+  font-size: 0.92rem;
+}
+
+@mixin item-link {
+  color: $foreground;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  font-weight: 700;
+
+  &:hover {
+    color: $brand-strong;
+  }
+}
+
+@mixin item-row($padding: 18px 0, $gap: 6px) {
+  display: grid;
+  gap: $gap;
+  padding: $padding;
+}
+
+@mixin list-reset {
+  display: grid;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@mixin prose-stack {
+  display: grid;
+  gap: 18px;
+}
+
+@mixin prose-text {
+  color: $text-subtle;
+  line-height: 1.85;
+}
+
+@mixin nav-entry($padding-left: 18px, $height: 42px, $border-width: 2px) {
+  position: relative;
+  min-height: $height;
+  padding: 9px 10px 9px $padding-left;
+  border: 0;
+  border-left: $border-width solid transparent;
+  background: transparent;
+  color: $text-subtle;
+  font-weight: 700;
+  transition:
+    color 0.18s ease,
+    border-color 0.18s ease,
+    background 0.18s ease;
+}
+
+@mixin nav-dot($left: 8px, $size: 4px) {
+  &::before {
+    content: '';
+    position: absolute;
+    left: $left;
+    top: 50%;
+    width: $size;
+    height: $size;
+    border-radius: 9999px;
+    transform: translateY(-50%);
+    background: rgba(53, 197, 240, 0.2);
+    transition: background 0.18s ease;
+  }
+
+  &.router-link-active::before,
+  &.router-link-exact-active::before {
+    background: $brand;
+  }
+}

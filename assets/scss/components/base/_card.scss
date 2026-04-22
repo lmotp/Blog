@@ -1,39 +1,33 @@
 @use '../../settings/tokens' as *;
 
 .base-card {
-  padding: 20px;
-  border-radius: $rounded-xl;
-  background: $surface-card;
-  border: 1px solid $border-soft;
-  box-shadow: $shadow-card;
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
   display: grid;
-  gap: 12px;
-  transition:
-    transform 0.2s ease,
-    box-shadow 0.2s ease,
-    border-color 0.2s ease;
+  gap: 10px;
 
   &:hover {
-    transform: translateY(-2px);
-    border-color: $border-strong;
-    box-shadow: 0 20px 50px rgba(22, 28, 32, 0.08);
+    background: transparent;
   }
-}
 
-.base-card--elevated {
-  background: $surface-elevated;
-}
+  &--elevated {
+    background: transparent;
+  }
 
-.base-card__header,
-.base-card__footer {
-  display: grid;
-  gap: 8px;
-}
+  &__header,
+  &__footer {
+    display: grid;
+    gap: 8px;
+  }
 
-.base-card__title {
-  margin: 0;
-  color: $foreground;
-  font-size: 1rem;
-  line-height: 1.4;
-  font-weight: 700;
+  &__title {
+    margin: 0;
+    color: $foreground;
+    font-size: 1rem;
+    line-height: 1.4;
+    font-weight: 700;
+  }
 }

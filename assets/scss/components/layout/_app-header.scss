@@ -1,4 +1,5 @@
-@use "../../settings/tokens" as *;
+@use '../../settings/tokens' as *;
+@use '../../settings/mixins' as *;
 
 .app-header {
   position: sticky;
@@ -6,197 +7,136 @@
   z-index: 20;
   display: grid;
   grid-template-rows: auto auto 1fr;
-  gap: 28px;
+  gap: 22px;
   align-content: start;
-  padding: 28px 22px;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.96) 0%, rgba(246, 250, 255, 0.96) 100%);
-  border: 1px solid $border-soft;
-  box-shadow: $shadow-card;
+  padding: 28px 22px 24px 24px;
+  background: #ffffff;
+  border-right: 1px solid $border-soft;
   height: 100dvh;
-  backdrop-filter: blur(18px);
   overflow: auto;
-}
 
-.app-brand {
-  display: grid;
-  gap: 6px;
-}
+  .app-brand {
+    display: grid;
+    gap: 6px;
 
-.app-brand-mark {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 1rem;
-  font-weight: 800;
-  color: $foreground;
-}
+    .app-brand-mark {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.98rem;
+      font-weight: 800;
+      color: $foreground;
 
-.app-brand__icon {
-  color: $brand;
-}
+      .app-brand__icon {
+        color: $brand;
+      }
+    }
 
-.app-brand-subtitle {
-  font-size: 0.9rem;
-  color: $text-muted;
-}
-
-.app-nav {
-  display: grid;
-  gap: 8px;
-  padding-top: 4px;
-}
-
-.app-nav-group {
-  display: grid;
-  gap: 10px;
-}
-
-.app-nav-link {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  position: relative;
-  padding: 14px 14px 14px 18px;
-  border-radius: 18px;
-  color: $text-subtle;
-  font-weight: 700;
-  background: $surface-elevated;
-  border: 1px solid $border-soft;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8);
-  transition:
-    transform 0.2s ease,
-    background 0.2s ease,
-    color 0.2s ease;
-
-  &:hover {
-    transform: translateX(4px);
-    background: rgba(53, 197, 240, 0.08);
-    color: $brand-strong;
+    .app-brand-subtitle {
+      font-size: 0.9rem;
+      color: $text-muted;
+    }
   }
 
-  &.router-link-active {
-    background: $brand;
-    color: $brand-contrast;
-    border-color: transparent;
+  .app-nav {
+    display: grid;
+    gap: 2px;
+    padding-top: 0;
+
+    .app-nav-group {
+      display: grid;
+      gap: 4px;
+    }
+
+    .app-nav-link {
+      @include nav-entry(18px, 42px, 2px);
+      @include nav-dot(8px, 4px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      &:hover {
+        background: rgba(53, 197, 240, 0.04);
+        color: $brand-strong;
+      }
+
+      &.router-link-active,
+      &.router-link-exact-active {
+        color: $brand-strong;
+        border-left-color: $brand;
+      }
+    }
+
+    .app-nav-accordion {
+      display: grid;
+      gap: 4px;
+
+      .app-nav-summary {
+        width: 100%;
+        list-style: none;
+        cursor: pointer;
+
+        &::-webkit-details-marker {
+          display: none;
+        }
+
+        &::after {
+          content: '▾';
+          color: $brand-strong;
+          font-size: 0.85rem;
+          transition: transform 0.2s ease;
+        }
+      }
+
+      &[open] > .app-nav-summary::after {
+        transform: rotate(180deg);
+      }
+
+      .app-nav-subnav {
+        display: grid;
+        gap: 0;
+        padding-left: 12px;
+
+        .app-nav-sublink {
+          @include nav-entry(20px, 36px, 1px);
+          @include nav-dot(10px, 4px);
+          font-size: 0.92rem;
+
+          &:hover {
+            background: rgba(53, 197, 240, 0.04);
+            color: $brand-strong;
+          }
+
+          &.router-link-active,
+          &.router-link-exact-active {
+            color: $brand-strong;
+            border-left-color: $brand;
+          }
+        }
+      }
+    }
+
+    .app-sidebar-note {
+      display: grid;
+      gap: 8px;
+      align-self: end;
+      padding-top: 16px;
+
+      .app-sidebar-note__title {
+        font-size: 0.82rem;
+        font-weight: 800;
+        color: $brand-strong;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+      }
+
+      .app-sidebar-note__text {
+        font-size: 0.94rem;
+        line-height: 1.6;
+        color: $text-subtle;
+      }
+    }
   }
-
-  &.router-link-exact-active {
-    background: $brand;
-    color: $brand-contrast;
-    border-color: transparent;
-  }
-
-  &::before {
-    content: "";
-    position: absolute;
-    left: 10px;
-    top: 50%;
-    width: 4px;
-    height: 4px;
-    border-radius: 9999px;
-    transform: translateY(-50%);
-    background: rgba(53, 197, 240, 0.32);
-    transition: background 0.2s ease;
-  }
-
-  &.router-link-active::before,
-  &.router-link-exact-active::before {
-    background: rgba(255, 255, 255, 0.9);
-  }
-}
-
-.app-nav-accordion {
-  display: grid;
-  gap: 8px;
-}
-
-.app-nav-summary {
-  width: 100%;
-  list-style: none;
-  cursor: pointer;
-}
-
-.app-nav-summary::-webkit-details-marker {
-  display: none;
-}
-
-.app-nav-summary::after {
-  content: "▾";
-  color: $brand-strong;
-  font-size: 0.85rem;
-  transition: transform 0.2s ease;
-}
-
-.app-nav-accordion[open] > .app-nav-summary::after {
-  transform: rotate(180deg);
-}
-
-.app-nav-subnav {
-  display: grid;
-  gap: 8px;
-  padding-left: 12px;
-}
-
-.app-nav-sublink {
-  position: relative;
-  padding: 10px 12px 10px 20px;
-  border-radius: 14px;
-  color: $text-subtle;
-  font-size: 0.92rem;
-  font-weight: 700;
-  background: rgba(255, 255, 255, 0.72);
-  border: 1px solid $border-soft;
-  transition:
-    transform 0.2s ease,
-    background 0.2s ease,
-    color 0.2s ease;
-
-  &:hover {
-    transform: translateX(3px);
-    background: rgba(53, 197, 240, 0.08);
-    color: $brand-strong;
-  }
-
-  &.router-link-active,
-  &.router-link-exact-active {
-    background: rgba(53, 197, 240, 0.12);
-    color: $brand-strong;
-    border-color: rgba(53, 197, 240, 0.28);
-  }
-
-  &::before {
-    content: "";
-    position: absolute;
-    left: 10px;
-    top: 50%;
-    width: 4px;
-    height: 4px;
-    border-radius: 9999px;
-    transform: translateY(-50%);
-    background: rgba(53, 197, 240, 0.28);
-  }
-}
-
-.app-sidebar-note {
-  display: grid;
-  gap: 8px;
-  align-self: end;
-  padding-top: 16px;
-  border-top: 1px solid $border-soft;
-}
-
-.app-sidebar-note__title {
-  font-size: 0.82rem;
-  font-weight: 800;
-  color: $brand-strong;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-}
-
-.app-sidebar-note__text {
-  font-size: 0.94rem;
-  line-height: 1.6;
-  color: $text-subtle;
 }
 
 @media (max-width: 1024px) {
@@ -205,5 +145,6 @@
     max-height: none;
     min-height: 0;
     top: auto;
+    border-right: 0;
   }
 }

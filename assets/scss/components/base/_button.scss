@@ -5,12 +5,12 @@
   align-items: center;
   justify-content: center;
   gap: 8px;
-  min-height: 44px;
-  border: 1px solid transparent;
-  border-radius: $rounded-md;
-  padding: 0 16px;
-  background: $brand;
-  color: $brand-contrast;
+  min-height: 38px;
+  padding: 0 14px;
+  border: 1px solid $border-strong;
+  border-radius: $rounded-lg;
+  background: transparent;
+  color: $foreground;
   font: inherit;
   font-size: 0.95rem;
   font-weight: 700;
@@ -18,40 +18,36 @@
   cursor: pointer;
   text-decoration: none;
   transition:
-    transform 0.2s ease,
-    background 0.2s ease,
-    border-color 0.2s ease,
-    box-shadow 0.2s ease;
-  box-shadow: 0 6px 14px rgba(53, 197, 240, 0.22);
+    color 0.18s ease,
+    background 0.18s ease,
+    border-color 0.18s ease;
 
   &:hover:not(:disabled) {
-    transform: translateY(-1px);
-    box-shadow: 0 10px 20px rgba(53, 197, 240, 0.28);
+    background: rgba(53, 197, 240, 0.06);
+    border-color: $brand;
+    color: $brand-strong;
   }
 
   &:focus-visible {
     outline: 0;
-    box-shadow:
-      0 0 0 4px $focus-ring,
-      0 10px 20px rgba(53, 197, 240, 0.22);
+    box-shadow: 0 0 0 2px $focus-ring;
   }
 
   &:disabled {
     opacity: 0.65;
     cursor: wait;
-    transform: none;
     box-shadow: none;
   }
-}
 
-.base-button--secondary {
-  background: #ffffff;
-  color: $brand-strong;
-  border-color: $brand;
-  box-shadow: none;
-
-  &:hover:not(:disabled) {
-    background: $brand-soft;
+  &--secondary {
+    background: transparent;
+    color: $brand-strong;
+    border-color: $border-strong;
     box-shadow: none;
+
+    &:hover:not(:disabled) {
+      background: rgba(53, 197, 240, 0.04);
+      box-shadow: none;
+    }
   }
 }

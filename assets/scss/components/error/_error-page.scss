@@ -1,34 +1,26 @@
 @use '../../settings/tokens' as *;
+@use '../../settings/mixins' as *;
 
 .error-page {
-  display: grid;
-  gap: 12px;
-}
+  @include stack(12px);
 
-.error-page__eyebrow {
-  margin: 0;
-  font-size: 0.78rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: $text-subtle;
-}
+  &__eyebrow {
+    @include eyebrow($text-subtle, 0.78rem);
+  }
 
-.error-page__title {
-  margin: 0;
-  font-size: clamp(2.3rem, 4vw, 3.8rem);
-  line-height: 1.06;
-}
+  &__title {
+    @include page-title(clamp(2.3rem, 4vw, 3.8rem), 1.06);
+  }
 
-.error-page__lead {
-  margin: 0;
-  color: $text-primary;
-  line-height: 1.7;
-}
+  &__lead {
+    @include lead(70ch, 1rem);
+    color: $text-primary;
+  }
 
-.error-page__actions {
-  display: flex;
-  gap: 12px;
-  margin-top: 16px;
-  flex-wrap: wrap;
+  &__actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 16px;
+    flex-wrap: wrap;
+  }
 }

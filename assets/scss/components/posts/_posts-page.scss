@@ -1,172 +1,151 @@
 @use '../../settings/tokens' as *;
+@use '../../settings/mixins' as *;
 
 .posts-page,
 .post-page {
-  display: grid;
-  gap: 24px;
+  @include stack(24px);
 }
 
-.posts-page__header,
-.post-page__header {
-  display: grid;
-  gap: 10px;
-}
+.posts-page {
+  &__header {
+    @include stack(10px);
+  }
 
-.posts-page__eyebrow,
-.post-page__eyebrow {
-  font-size: 0.82rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: $brand-strong;
-}
+  &__eyebrow {
+    @include eyebrow();
+  }
 
-.posts-page__title,
-.post-page__title {
-  margin: 0;
-  font-size: clamp(2rem, 4vw, 3rem);
-  line-height: 1.1;
-  color: $foreground;
-}
+  &__title {
+    @include page-title(clamp(2rem, 4vw, 3rem), 1.1);
+  }
 
-.posts-page__lead,
-.post-page__lead {
-  margin: 0;
-  max-width: 64ch;
-  color: $text-subtle;
-  line-height: 1.7;
-}
+  &__lead {
+    @include lead(64ch, 1rem);
+  }
 
-.posts-page__divider {
-  height: 1px;
-  margin: 30px 0 32px;
-  background: $border-soft;
-}
+  &__divider {
+    height: 1px;
+    margin: 30px 0 32px;
+    background: $border-soft;
+  }
 
-.posts-page__section {
-  display: grid;
-  gap: 18px;
-  margin-bottom: 42px;
-}
+  &__section {
+    @include stack(18px);
+    margin-bottom: 42px;
+    padding-top: 8px;
+  }
 
-.posts-page__section-header {
-  display: flex;
-  align-items: end;
-  justify-content: space-between;
-  gap: 16px;
-}
+  &__section-header {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 16px;
+  }
 
-.posts-page__section-title {
-  margin: 0;
-  color: $foreground;
-  font-size: clamp(1.6rem, 2.5vw, 2.15rem);
-  line-height: 1.2;
-}
+  &__section-title {
+    margin: 0;
+    color: $foreground;
+    font-size: clamp(1.6rem, 2.5vw, 2.15rem);
+    line-height: 1.2;
+  }
 
-.posts-page__section-meta {
-  margin: 6px 0 0;
-  color: $text-muted;
-  font-size: 0.92rem;
-}
+  &__section-meta {
+    @include meta;
+    margin-top: 6px;
+  }
 
-.posts-page__items {
-  display: grid;
-  gap: 16px;
-}
+  &__items {
+    @include list-reset;
+  }
 
-.posts-page__item {
-  display: grid;
-  gap: 8px;
-  padding: 18px 0;
-  border-bottom: 1px solid $border-soft;
-}
+  &__item {
+    @include item-row(18px 0, 8px);
+  }
 
-.posts-page__item:last-child {
-  border-bottom: 0;
-}
+  &__item-head {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
 
-.posts-page__item-head {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 10px;
-}
+  &__item-link {
+    @include item-link;
+  }
 
-.posts-page__item-pill {
-  display: inline-flex;
-  align-items: center;
-  min-height: 28px;
-  padding: 0 10px;
-  border-radius: 999px;
-  border: 1px solid rgba(53, 197, 240, 0.2);
-  background: rgba(53, 197, 240, 0.12);
-  color: $brand-strong;
-  font-size: 0.8rem;
-  font-weight: 800;
-  letter-spacing: 0.04em;
-}
+  &__item-lead {
+    margin: 0;
+    color: $text-subtle;
+    line-height: 1.7;
+  }
 
-.posts-page__item-link {
-  color: $foreground;
-  font-size: 1.05rem;
-  line-height: 1.6;
-  font-weight: 700;
-
-  &:hover {
-    color: $brand-strong;
+  &__item-meta {
+    @include meta;
   }
 }
 
-.posts-page__item-lead {
-  margin: 0;
-  color: $text-subtle;
-  line-height: 1.7;
-}
+.post-page {
+  &__header {
+    @include stack(10px);
+    padding-bottom: 12px;
+  }
 
-.posts-page__item-meta {
-  margin: 0;
-  font-size: 0.92rem;
-  color: $text-muted;
-}
+  &__eyebrow {
+    @include eyebrow();
+  }
 
-.post-page__article {
-  padding: 28px;
-  border-radius: $rounded-xl;
-  background: $surface-elevated;
-  border: 1px solid $border-soft;
-  box-shadow: $shadow-card;
-}
+  &__title {
+    @include page-title(clamp(2.4rem, 4vw, 3.6rem), 1.05);
+  }
 
-.post-page__article :is(h1, h2, h3, h4) {
-  margin-top: 1.8em;
-  margin-bottom: 0.6em;
-  line-height: 1.2;
-  color: $foreground;
-}
+  &__meta {
+    @include meta;
+  }
 
-.post-page__article p,
-.post-page__article li {
-  color: $text-subtle;
-  line-height: 1.8;
-}
+  &__lead {
+    @include lead(70ch, 1rem);
+  }
 
-.post-page__article pre {
-  overflow-x: auto;
-  padding: 18px;
-  border-radius: $rounded-lg;
-  background: #0f172a;
-  color: #f8fafc;
-}
+  &__article {
+    @include prose-stack;
+    padding: 0;
+    border-radius: 0;
+    background: transparent;
+    border: 0;
+    box-shadow: none;
 
-.post-page__article code {
-  padding: 0.15em 0.35em;
-  border-radius: 4px;
-  background: rgba(53, 197, 240, 0.12);
-  color: $brand-strong;
+    :is(h1, h2, h3, h4) {
+      margin-top: 1.8em;
+      margin-bottom: 0.6em;
+      line-height: 1.25;
+      color: $foreground;
+    }
+
+    p,
+    li {
+      @include prose-text;
+    }
+
+    pre {
+      overflow-x: auto;
+      padding: 18px;
+      border-radius: $rounded-md;
+      background: #0f172a;
+      color: #f8fafc;
+    }
+
+    code {
+      padding: 0.15em 0.35em;
+      border-radius: 4px;
+      background: rgba(53, 197, 240, 0.12);
+      color: $brand-strong;
+    }
+  }
 }
 
 @media (max-width: 1024px) {
-  .post-page__article {
-    padding: 20px;
+  .post-page {
+    &__article {
+      padding: 0;
+    }
   }
 }
