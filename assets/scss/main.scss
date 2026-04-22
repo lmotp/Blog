@@ -2,21 +2,13 @@
 @use './layouts/default';
 @use './layouts/error';
 @use './components/base/button';
-@use './components/base/input';
 @use './components/base/icon';
 @use './components/base/card';
 @use './components/layout/app-header';
 @use './components/layout/app-footer';
 @use './components/home/home-page';
-@use './components/home/home-hero';
-@use './components/home/home-features';
-@use './components/home/home-stats';
-@use './components/home/home-testimonials';
-@use './components/home/home-cta';
 @use './components/debt/debt-page';
-@use './components/posts/posts-overview';
 @use './components/posts/posts-page';
-@use './components/notes/notes-overview';
 @use './components/notes/notes-category-page';
 @use './components/error/error-page';
 

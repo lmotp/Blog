@@ -9,14 +9,14 @@
               <span class="debt-page__brick debt-page__brick--bottom" />
             </span>
             <div class="debt-page__title-group">
-              <p class="debt-page__eyebrow">읽기 큐</p>
-              <h1 class="debt-page__title">부채</h1>
+              <p class="debt-page__eyebrow">아카이빙</p>
+              <h1 class="debt-page__title">아카이빙</h1>
             </div>
           </div>
 
           <p class="debt-page__lead">
             글의 상태는 Markdown frontmatter로 관리하고, 화면은 기술글/글감/책처럼 카테고리 중심으로
-            보여주는 읽기 큐입니다.
+            보여주는 아카이빙입니다.
           </p>
         </header>
 

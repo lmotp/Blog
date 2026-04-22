@@ -2,51 +2,247 @@
 
 .home-page {
   display: grid;
-  gap: 24px;
+  gap: 32px;
 }
 
-.home-page__posts {
+.home-page__hero {
   display: grid;
-  gap: 20px;
+  gap: 14px;
+  padding: 4px 0 12px;
 }
 
-.home-page__posts-header {
-  display: grid;
-  gap: 8px;
-}
-
-.home-page__posts-eyebrow {
+.home-page__eyebrow {
   margin: 0;
+  color: $brand-strong;
   font-size: 0.82rem;
   font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: $brand-strong;
 }
 
-.home-page__posts-title {
+.home-page__title {
   margin: 0;
-  font-size: clamp(1.4rem, 2.2vw, 2rem);
   color: $foreground;
+  font-size: clamp(2.8rem, 5vw, 4.5rem);
+  line-height: 0.98;
+  font-weight: 800;
 }
 
-.home-page__posts-lead {
+.home-page__lead {
+  margin: 0;
+  color: $text-subtle;
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+.home-page__summary {
+  margin: 8px 0 0;
+  max-width: 72ch;
+  color: $text-subtle;
+  line-height: 1.85;
+}
+
+.home-page__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.home-page__section {
+  display: grid;
+  gap: 18px;
+}
+
+.home-page__section--split {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.home-page__section-head {
+  display: grid;
+  gap: 6px;
+}
+
+.home-page__section-eyebrow {
+  margin: 0;
+  color: $brand-strong;
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.home-page__section-title {
+  margin: 0;
+  color: $foreground;
+  font-size: clamp(1.4rem, 2.2vw, 2rem);
+  line-height: 1.2;
+}
+
+.home-page__skills {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.home-page__skill-card {
+  min-height: 100%;
+}
+
+.home-page__skill-text {
+  margin: 0;
+  color: $text-subtle;
+  font-size: 0.98rem;
+  font-weight: 700;
+}
+
+.home-page__experience-list {
+  display: grid;
+  gap: 18px;
+}
+
+.home-page__experience-card {
+  min-height: 100%;
+}
+
+.home-page__experience-header {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.home-page__experience-company {
+  margin: 0 0 4px;
+  color: $brand-strong;
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.home-page__experience-title {
+  margin: 0;
+  color: $foreground;
+  font-size: 1.08rem;
+  line-height: 1.45;
+}
+
+.home-page__experience-period {
+  margin: 0;
+  color: $text-muted;
+  font-size: 0.92rem;
+  white-space: nowrap;
+}
+
+.home-page__experience-items {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding-left: 18px;
+  color: $text-subtle;
+  line-height: 1.7;
+}
+
+.home-page__contact-card,
+.home-page__direction-card {
+  min-height: 100%;
+}
+
+.home-page__contact-list {
+  display: grid;
+  gap: 12px;
+}
+
+.home-page__contact-link {
+  color: $foreground;
+  font-weight: 700;
+
+  &:hover {
+    color: $brand-strong;
+  }
+}
+
+.home-page__direction-list {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding-left: 18px;
+  color: $text-subtle;
+  line-height: 1.7;
+}
+
+.home-page__post-list {
+  display: grid;
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.home-page__post-item {
+  display: grid;
+  gap: 8px;
+  padding: 18px 0;
+  border-bottom: 1px solid $border-soft;
+}
+
+.home-page__post-item:last-child {
+  border-bottom: 0;
+}
+
+.home-page__post-item-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.home-page__post-category {
+  margin: 0;
+  color: $brand-strong;
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.home-page__post-link {
+  color: $foreground;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  font-weight: 700;
+
+  &:hover {
+    color: $brand-strong;
+  }
+}
+
+.home-page__post-meta {
+  margin: 0;
+  color: $text-muted;
+  font-size: 0.92rem;
+}
+
+.home-page__post-description {
   margin: 0;
   color: $text-subtle;
   line-height: 1.7;
 }
 
-.home-page__posts-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 20px;
+@media (max-width: 1024px) {
+  .home-page__skills,
+  .home-page__section--split {
+    grid-template-columns: 1fr;
+  }
+
+  .home-page__experience-header {
+    flex-direction: column;
+  }
 }
 
-@media (max-width: 760px) {
-  .home-features,
-  .home-stats,
-  .home-testimonials,
-  .home-page__posts-grid {
+@media (max-width: 720px) {
+  .home-page__skills {
     grid-template-columns: 1fr;
   }
 }

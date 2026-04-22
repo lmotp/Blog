@@ -8,8 +8,3 @@ export interface BlogPost {
   date: string
   cover?: string
 }
-
-export type BlogPostPreview = Pick<
-  BlogPost,
-  'path' | 'title' | 'description' | 'category' | 'date'
->

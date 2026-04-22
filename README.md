@@ -18,12 +18,12 @@ npm run dev
 - `components/layout`: app shell components
 - `components/base`: low-level building blocks
 - `components/home`: home page sections
-- `components/debt`: reading queue page sections
-- `components/posts`: blog post page sections
-- `components/notes`: markdown memo page sections
+- `components/debt`: archiving page sections
+- `components/posts`: blog post detail and status pages
+- `components/notes`: markdown memo detail and category pages
 - `components/error`: error page sections
 - `layouts`: Nuxt layout components
-- `pages`: routes for home, posts, notes, and reading queue
+- `pages`: routes for home, post subpages, note subpages, and archiving
 - `content/posts`: Markdown blog posts rendered by Nuxt Content
 - `content/notes`: Markdown memo notes rendered by Nuxt Content
 - `content.config.ts`: Nuxt Content collection definitions
