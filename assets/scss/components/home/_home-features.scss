@@ -1,0 +1,17 @@
+@use '../../settings/tokens' as *;
+
+.home-features {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.home-feature-card {
+  height: 100%;
+}
+
+.home-feature-card__description {
+  margin: 0;
+  color: $text-primary;
+  line-height: 1.65;
+}

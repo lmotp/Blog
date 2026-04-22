@@ -1,0 +1,14 @@
+@use '../../settings/tokens' as *;
+
+.home-page {
+  display: grid;
+  gap: 24px;
+}
+
+@media (max-width: 760px) {
+  .home-features,
+  .home-stats,
+  .home-testimonials {
+    grid-template-columns: 1fr;
+  }
+}

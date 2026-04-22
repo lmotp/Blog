@@ -1,0 +1,69 @@
+@use '../../settings/tokens' as *;
+
+.search-page {
+  display: grid;
+  gap: 24px;
+}
+
+.search-page__header {
+  display: grid;
+  gap: 12px;
+}
+
+.search-page__eyebrow {
+  margin: 0;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: $text-subtle;
+}
+
+.search-page__title {
+  margin: 0;
+  font-size: clamp(2.3rem, 4vw, 3.8rem);
+  line-height: 1.06;
+}
+
+.search-page__lead {
+  margin: 0;
+  color: $text-primary;
+  line-height: 1.7;
+  max-width: 62ch;
+}
+
+.search-page__panel {
+  padding: 22px;
+  border-radius: 22px;
+  background: $surface-elevated;
+  border: 1px solid $border-strong;
+  box-shadow: $shadow-card;
+}
+
+.search-page__panel-label {
+  margin: 0 0 14px;
+  font-weight: 700;
+  color: $foreground;
+}
+
+.search-page__list {
+  margin: 0;
+  padding-left: 18px;
+  color: $text-primary;
+  line-height: 1.8;
+  display: grid;
+  gap: 8px;
+}
+
+.search-page__filters {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+@media (max-width: 760px) {
+  .search-page__filters {
+    grid-template-columns: 1fr;
+  }
+}
