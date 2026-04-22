@@ -1,0 +1,10 @@
+@use '../../settings/tokens' as *;
+
+.app-footer {
+  padding: 24px 0 8px;
+  color: $text-muted;
+}
+
+.app-footer__text {
+  margin: 0;
+}
