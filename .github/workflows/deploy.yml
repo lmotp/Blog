@@ -1,6 +1,7 @@
 name: deploy
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - main
@@ -22,7 +23,7 @@ jobs:
             cd "${{ vars.DEPLOY_PATH }}"
             git fetch origin main
             git reset --hard origin/main
-            npm ci --omit=dev
+            npm ci
             npm run build
 
             if pm2 describe blog >/dev/null 2>&1; then
