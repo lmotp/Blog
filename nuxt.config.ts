@@ -1,5 +1,5 @@
 export default defineNuxtConfig({
-  modules: ['@pinia/nuxt'],
+  modules: ['@pinia/nuxt', '@nuxt/content'],
   devtools: {
     enabled: true,
   },
@@ -7,6 +7,16 @@ export default defineNuxtConfig({
   app: {
     head: {
       title: 'Blog',
+      link: [
+        {
+          rel: 'preconnect',
+          href: 'https://cdn.jsdelivr.net',
+        },
+        {
+          rel: 'stylesheet',
+          href: 'https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css',
+        },
+      ],
       meta: [
         { charset: 'utf-8' },
         {

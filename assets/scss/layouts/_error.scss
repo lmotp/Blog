@@ -1,18 +1,21 @@
 @use '../settings/tokens' as *;
 
 .error-layout {
-  min-height: 100vh;
+  min-height: 100svh;
   display: grid;
   place-items: center;
   padding: 24px;
+  background:
+    radial-gradient(circle at top, rgba(53, 197, 240, 0.16), transparent 36%),
+    linear-gradient(180deg, #f6faff 0%, #edf3f8 100%);
 }
 
 .error-card {
   width: min(100%, 640px);
-  padding: 40px;
-  border-radius: 28px;
+  padding: 36px;
+  border-radius: $rounded-xl;
   background: $surface-elevated;
-  border: 1px solid $border-strong;
+  border: 1px solid $border-soft;
   box-shadow: $shadow-card;
   backdrop-filter: blur(16px);
 }

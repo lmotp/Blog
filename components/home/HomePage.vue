@@ -1,65 +1,145 @@
 <template>
   <section class="home-page">
-    <HomeHero
-      eyebrow="홈"
-      title="Blog"
-      lead="문서 수집, 읽기 상태 관리, 정리와 발행이 이어지는 개인 블로그 IA입니다."
-    >
-      <template #actions>
-        <BaseButton to="/documents">문서 보기</BaseButton>
-        <BaseButton to="/notes" secondary>노트 보기</BaseButton>
-      </template>
-    </HomeHero>
+    <header class="home-page__hero">
+      <p class="home-page__eyebrow">관찰을 바탕으로 문제를 해결하는 개발자</p>
+      <h1 class="home-page__title">박철순</h1>
+      <p class="home-page__lead">
+        프론트엔드 개발자 | Vue3 / Nuxt3 | Design System
+      </p>
 
-    <HomeFeatures :features="features" />
-    <HomeStats :stats="stats" />
-    <HomeTestimonials :quotes="quotes" />
+      <p class="home-page__summary">
+        문제를 발견하고 구조적으로 해결하는 프론트엔드 개발자입니다.
+        디자인 시스템과 공통 컴포넌트를 정리하고, 코드 구조를 단순하게 만드는 작업에 집중해 왔습니다.
+      </p>
 
-    <HomeCTA
-      lead="지금 구조를 기준으로 읽기와 발행의 흐름을 이어가세요."
-      title="문서 큐를 정리하고 노트로 연결하기"
-    >
-      <BaseButton to="/documents">문서로 이동</BaseButton>
-      <BaseButton to="/search" secondary>검색하기</BaseButton>
-    </HomeCTA>
+      <div class="home-page__actions">
+        <BaseButton to="/posts/reading">글 모음</BaseButton>
+        <BaseButton to="/notes/css" secondary>메모 모음</BaseButton>
+      </div>
+    </header>
+
+    <section class="home-page__section">
+      <div class="home-page__section-head">
+        <p class="home-page__section-eyebrow">Skills</p>
+        <h2 class="home-page__section-title">주요 기술</h2>
+      </div>
+
+      <div class="home-page__skills">
+        <BaseCard v-for="skill in skills" :key="skill" class="home-page__skill-card">
+          <p class="home-page__skill-text">{{ skill }}</p>
+        </BaseCard>
+      </div>
+    </section>
+
+    <section class="home-page__section">
+      <div class="home-page__section-head">
+        <p class="home-page__section-eyebrow">Experiences</p>
+        <h2 class="home-page__section-title">경력과 프로젝트</h2>
+      </div>
+
+      <div class="home-page__experience-list">
+        <BaseCard v-for="experience in experiences" :key="experience.title" elevated class="home-page__experience-card">
+          <template #header>
+            <div class="home-page__experience-header">
+              <div>
+                <p class="home-page__experience-company">{{ experience.company }}</p>
+                <h3 class="home-page__experience-title">{{ experience.title }}</h3>
+              </div>
+              <p class="home-page__experience-period">{{ experience.period }}</p>
+            </div>
+          </template>
+
+          <ul class="home-page__experience-items">
+            <li v-for="item in experience.items" :key="item" class="home-page__experience-item">
+              {{ item }}
+            </li>
+          </ul>
+        </BaseCard>
+      </div>
+    </section>
+
+    <section class="home-page__section home-page__section--split">
+      <BaseCard class="home-page__contact-card" elevated>
+        <template #header>
+          <p class="home-page__section-eyebrow">Contact</p>
+          <h2 class="home-page__section-title">연락처</h2>
+        </template>
+
+        <div class="home-page__contact-list">
+          <a class="home-page__contact-link" href="mailto:unoeye22@gmail.com">unoeye22@gmail.com</a>
+          <a class="home-page__contact-link" href="tel:01054086369">010 5408 6369</a>
+        </div>
+      </BaseCard>
+
+      <BaseCard class="home-page__direction-card" elevated>
+        <template #header>
+          <p class="home-page__section-eyebrow">Focus</p>
+          <h2 class="home-page__section-title">기록하는 방식</h2>
+        </template>
+
+        <ul class="home-page__direction-list">
+          <li>글은 `content/posts`의 Markdown 파일로 관리합니다.</li>
+          <li>메모는 `content/notes`의 주제별 Markdown 파일로 관리합니다.</li>
+          <li>읽기 큐와 보관함은 글의 상태를 기준으로 정리합니다.</li>
+        </ul>
+      </BaseCard>
+    </section>
+
+    <section class="home-page__section">
+      <div class="home-page__section-head">
+        <p class="home-page__section-eyebrow">Blog</p>
+        <h2 class="home-page__section-title">최근 글</h2>
+      </div>
+
+      <ul class="home-page__post-list">
+        <li v-for="post in recentPosts" :key="post.path" class="home-page__post-item">
+          <div class="home-page__post-item-head">
+            <p class="home-page__post-category">{{ post.category }}</p>
+            <NuxtLink :to="post.path" class="home-page__post-link">{{ post.title }}</NuxtLink>
+          </div>
+          <p class="home-page__post-meta">{{ post.date }}</p>
+          <p class="home-page__post-description">{{ post.description }}</p>
+        </li>
+      </ul>
+    </section>
   </section>
 </template>
 
 <script setup lang="ts">
-import HomeCTA from './HomeCTA.vue'
-import HomeFeatures from './HomeFeatures.vue'
-import HomeHero from './HomeHero.vue'
-import HomeStats from './HomeStats.vue'
-import HomeTestimonials from './HomeTestimonials.vue'
+import type { BlogPost } from '~/types/blog'
 
-const features = [
+const skills = ['HTML', 'CSS', 'SCSS', 'JavaScript', 'Vue', 'Nuxt']
+
+const experiences = [
   {
-    title: '문서',
-    description: '읽을 문서, 읽는 중, 읽은 문서를 분리해서 관리합니다.',
+    company: '㈜리즌디자인',
+    title: 'Vue3, Nuxt3 기반 디자인 시스템 및 홈페이지 고도화',
+    period: '2023.07 ~ 2025.06',
+    items: [
+      '공통 컴포넌트 구조를 재설계하고 디자인 시스템(MDS)을 구축했습니다.',
+      'Nuxt2 → Nuxt3 마이그레이션과 Composition API 리팩토링을 진행했습니다.',
+      'Lighthouse 성능을 60 → 90으로 개선하고 Storybook 문서를 통해 협업 효율을 높였습니다.',
+    ],
   },
   {
-    title: '노트',
-    description: '개념 정리, 번역, 실험 기록을 발행물로 묶습니다.',
-  },
-  {
-    title: '검색',
-    description: '문서와 노트를 함께 빠르게 찾습니다.',
+    company: '㈜뉴이스트아트',
+    title: '서비스 리뉴얼과 관리자 시스템 구축',
+    period: '2022.04 ~ 2023.04',
+    items: [
+      '모달 중심 구조를 페이지 기반으로 재설계해 사용자 흐름을 단순화했습니다.',
+      '자사 홈페이지와 Admin 시스템 프론트엔드를 단독으로 수행했습니다.',
+      '반응형 UI와 QA를 통해 다양한 환경에서 일관된 경험을 제공했습니다.',
+    ],
   },
 ]
 
-const stats = [
-  { label: '중심 흐름', value: '수집 → 읽기 → 정리 → 실험' },
-  { label: '제외 메뉴', value: '소개, 태그, 요약 노트, 프로젝트' },
-]
+const { data: posts } = await useAsyncData('home-posts', () => {
+  return queryCollection('posts')
+    .select('path', 'title', 'description', 'category', 'date')
+    .order('date', 'DESC')
+    .limit(3)
+    .all<BlogPost>()
+})
 
-const quotes = [
-  {
-    author: '운영 원칙',
-    quote: '문서는 수집과 상태 관리 중심, 글은 정리와 발행 중심',
-  },
-  {
-    author: '파생 구조',
-    quote: '하나의 원문에서 여러 노트가 파생될 수 있어야 함',
-  },
-]
+const recentPosts = computed(() => posts.value ?? [])
 </script>

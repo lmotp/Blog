@@ -4,24 +4,54 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border: 0;
-  border-radius: 999px;
-  padding: 12px 18px;
+  gap: 8px;
+  min-height: 44px;
+  border: 1px solid transparent;
+  border-radius: $rounded-md;
+  padding: 0 16px;
   background: $brand;
   color: $brand-contrast;
   font: inherit;
+  font-size: 0.95rem;
   font-weight: 700;
+  line-height: 1;
   cursor: pointer;
   text-decoration: none;
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+  box-shadow: 0 6px 14px rgba(53, 197, 240, 0.22);
+
+  &:hover:not(:disabled) {
+    transform: translateY(-1px);
+    box-shadow: 0 10px 20px rgba(53, 197, 240, 0.28);
+  }
+
+  &:focus-visible {
+    outline: 0;
+    box-shadow:
+      0 0 0 4px $focus-ring,
+      0 10px 20px rgba(53, 197, 240, 0.22);
+  }
 
   &:disabled {
     opacity: 0.65;
     cursor: wait;
+    transform: none;
+    box-shadow: none;
   }
 }
 
 .base-button--secondary {
-  background: transparent;
-  color: $brand;
-  border: 1px solid $border-strong;
+  background: #ffffff;
+  color: $brand-strong;
+  border-color: $brand;
+  box-shadow: none;
+
+  &:hover:not(:disabled) {
+    background: $brand-soft;
+    box-shadow: none;
+  }
 }
