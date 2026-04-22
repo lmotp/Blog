@@ -3,6 +3,8 @@ title: Server API를 BFF로 쓰는 방법
 description: 클라이언트는 /api만 호출하고, 내부 로직은 서버 라우트로 숨기는 방식입니다.
 date: 2026-04-21
 category: BFF
+readingStatus: reading
+readingCategory: 기술글
 ---
 
 # Server API를 BFF로 쓰는 방법

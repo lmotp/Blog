@@ -3,10 +3,11 @@
     <HomeHero
       eyebrow="홈"
       title="Blog"
-      lead="Markdown 글을 중심으로 정리와 발행이 이어지는 개인 블로그입니다."
+      lead="Markdown 글과 메모를 중심으로 정리와 발행이 이어지는 개인 블로그입니다."
     >
       <template #actions>
         <BaseButton to="/posts">글 보기</BaseButton>
+        <BaseButton to="/notes" secondary>노트 보기</BaseButton>
       </template>
     </HomeHero>
 
@@ -15,10 +16,11 @@
     <HomeTestimonials :quotes="quotes" />
 
     <HomeCTA
-      lead="Markdown 파일 하나를 추가하면 글 목록과 상세 페이지가 함께 생깁니다."
-      title="이제 글은 content/posts에 작성하면 됩니다."
+      lead="Markdown 파일 하나를 추가하면 글과 노트가 각각 목록과 상세 페이지로 반영됩니다."
+      title="이제 글은 content/posts, 메모는 content/notes에 작성하면 됩니다."
     >
       <BaseButton to="/posts">글 목록 보기</BaseButton>
+      <BaseButton to="/notes" secondary>노트 목록 보기</BaseButton>
     </HomeCTA>
 
     <section class="home-page__posts">
@@ -38,7 +40,7 @@
 </template>
 
 <script setup lang="ts">
-import type { BlogPost } from '~/types/blog'
+import type { BlogPostPreview } from '~/types/blog'
 import HomeCTA from './HomeCTA.vue'
 import HomeFeatures from './HomeFeatures.vue'
 import HomeHero from './HomeHero.vue'
@@ -52,6 +54,10 @@ import PostCard from '~/components/posts/PostCard.vue'
     description: 'Markdown 파일을 content/posts에 넣으면 바로 글로 노출됩니다.',
   },
   {
+    title: '노트',
+    description: '메모성 Markdown 파일을 content/notes에 넣으면 주제별로 묶입니다.',
+  },
+  {
     title: '레이아웃',
     description: '공통 헤더와 본문 구조를 Nuxt 레이아웃으로 유지합니다.',
   },
@@ -60,6 +66,7 @@ import PostCard from '~/components/posts/PostCard.vue'
 const stats = [
   { label: '중심 흐름', value: '작성 → 정리 → 발행' },
   { label: '운영 방식', value: 'md + Nuxt Content' },
+  { label: '콘텐츠 축', value: 'posts + notes' },
 ]
 
 const quotes = [
@@ -78,7 +85,7 @@ const { data: posts } = await useAsyncData('home-posts', () => {
     .select('path', 'title', 'description', 'category', 'date')
     .order('date', 'DESC')
     .limit(3)
-    .all<BlogPost>()
+    .all<BlogPostPreview>()
 })
 
 const recentPosts = computed(() => posts.value ?? [])

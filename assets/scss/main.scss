@@ -13,7 +13,11 @@
 @use './components/home/home-stats';
 @use './components/home/home-testimonials';
 @use './components/home/home-cta';
+@use './components/debt/debt-page';
+@use './components/posts/posts-overview';
 @use './components/posts/posts-page';
+@use './components/notes/notes-overview';
+@use './components/notes/notes-category-page';
 @use './components/error/error-page';
 
 :root {

@@ -37,50 +37,96 @@
   line-height: 1.7;
 }
 
-.posts-page__grid {
+.posts-page__divider {
+  height: 1px;
+  margin: 30px 0 32px;
+  background: $border-soft;
+}
+
+.posts-page__section {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 20px;
+  gap: 18px;
+  margin-bottom: 42px;
 }
 
-.post-card__header {
-  display: grid;
-  gap: 6px;
+.posts-page__section-header {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 16px;
 }
 
-.post-card__category {
-  margin: 0;
-  color: $brand-strong;
-  font-size: 0.82rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.post-card__title {
+.posts-page__section-title {
   margin: 0;
   color: $foreground;
-  font-size: 1.15rem;
-  line-height: 1.35;
+  font-size: clamp(1.6rem, 2.5vw, 2.15rem);
+  line-height: 1.2;
 }
 
-.posts-page__date,
-.post-page__meta {
-  margin: 0;
-  font-size: 0.92rem;
+.posts-page__section-meta {
+  margin: 6px 0 0;
   color: $text-muted;
-}
-
-.post-card__date {
-  margin: 0;
   font-size: 0.92rem;
-  color: $text-muted;
 }
 
-.post-card__description {
-  margin: 12px 0 0;
+.posts-page__items {
+  display: grid;
+  gap: 16px;
+}
+
+.posts-page__item {
+  display: grid;
+  gap: 8px;
+  padding: 18px 0;
+  border-bottom: 1px solid $border-soft;
+}
+
+.posts-page__item:last-child {
+  border-bottom: 0;
+}
+
+.posts-page__item-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.posts-page__item-pill {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  padding: 0 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(53, 197, 240, 0.2);
+  background: rgba(53, 197, 240, 0.12);
+  color: $brand-strong;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+
+.posts-page__item-link {
+  color: $foreground;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  font-weight: 700;
+
+  &:hover {
+    color: $brand-strong;
+  }
+}
+
+.posts-page__item-lead {
+  margin: 0;
   color: $text-subtle;
   line-height: 1.7;
+}
+
+.posts-page__item-meta {
+  margin: 0;
+  font-size: 0.92rem;
+  color: $text-muted;
 }
 
 .post-page__article {
@@ -120,10 +166,6 @@
 }
 
 @media (max-width: 1024px) {
-  .posts-page__grid {
-    grid-template-columns: 1fr;
-  }
-
   .post-page__article {
     padding: 20px;
   }

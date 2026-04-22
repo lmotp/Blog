@@ -3,6 +3,8 @@ title: 컴포넌트 폴더를 나누는 기준
 description: base, layout, page 단위로 컴포넌트를 나눌 때 어떤 기준으로 구분할지 정리한 샘플 글입니다.
 date: 2026-04-22
 category: Components
+readingStatus: to-read
+readingCategory: 글감
 ---
 
 # 컴포넌트 폴더를 나누는 기준
@@ -13,7 +15,7 @@ category: Components
 
 - `base`: 버튼, 카드, 입력처럼 가장 작은 단위
 - `layout`: 헤더, 푸터, 사이드바처럼 화면 골격
-- `home`, `documents`, `notes`, `posts`: 각 페이지 전용 블록
+- `home`, `notes`, `posts`: 각 페이지 전용 블록
 
 ## 이렇게 나누는 이유
 
@@ -27,7 +29,6 @@ components/
   base/
   layout/
   home/
-  documents/
   notes/
   posts/
 ```

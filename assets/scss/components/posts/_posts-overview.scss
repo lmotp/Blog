@@ -1,0 +1,99 @@
+@use '../../settings/tokens' as *;
+
+.posts-overview {
+  display: grid;
+  gap: 24px;
+}
+
+.posts-overview__header {
+  display: grid;
+  gap: 10px;
+}
+
+.posts-overview__eyebrow {
+  margin: 0;
+  color: $brand-strong;
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.posts-overview__title {
+  margin: 0;
+  color: $foreground;
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.1;
+}
+
+.posts-overview__lead {
+  margin: 0;
+  max-width: 64ch;
+  color: $text-subtle;
+  line-height: 1.7;
+}
+
+.posts-overview__divider {
+  height: 1px;
+  background: $border-soft;
+}
+
+.posts-overview__items {
+  display: grid;
+  gap: 16px;
+}
+
+.posts-overview__item {
+  display: grid;
+  gap: 8px;
+  padding: 18px 0;
+  border-bottom: 1px solid $border-soft;
+}
+
+.posts-overview__item:last-child {
+  border-bottom: 0;
+}
+
+.posts-overview__item-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.posts-overview__item-pill {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  padding: 0 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(53, 197, 240, 0.2);
+  background: rgba(53, 197, 240, 0.12);
+  color: $brand-strong;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+
+.posts-overview__item-link {
+  color: $foreground;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  font-weight: 700;
+
+  &:hover {
+    color: $brand-strong;
+  }
+}
+
+.posts-overview__item-lead {
+  margin: 0;
+  color: $text-subtle;
+  line-height: 1.7;
+}
+
+.posts-overview__item-meta {
+  margin: 0;
+  color: $text-muted;
+  font-size: 0.92rem;
+}

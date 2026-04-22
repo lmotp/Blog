@@ -2,7 +2,6 @@
   <BaseCard>
     <template #header>
       <div class="post-card__header">
-        <p class="post-card__category">{{ post.category }}</p>
         <h3 class="post-card__title">{{ post.title }}</h3>
       </div>
     </template>
@@ -17,9 +16,9 @@
 </template>
 
 <script setup lang="ts">
-import type { BlogPost } from '~/types/blog'
+import type { BlogPostPreview } from '~/types/blog'
 
 defineProps<{
-  post: BlogPost
+  post: BlogPostPreview
 }>()
 </script>
