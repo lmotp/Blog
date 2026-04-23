@@ -17,13 +17,13 @@ npm run dev
 - `assets/scss/settings`: shared SCSS tokens
 - `components/layout`: app shell components
 - `components/base`: low-level building blocks
+- `components/about`: about/resume page sections
 - `components/home`: home page sections
-- `components/debt`: archiving page sections
 - `components/posts`: blog post detail and status pages
-- `components/notes`: markdown memo detail and category pages
+- `components/notes`: note hub and category pages
 - `components/error`: error page sections
 - `layouts`: Nuxt layout components
-- `pages`: routes for home, post subpages, note subpages, and archiving
+- `pages`: routes for home, about, post subpages, and note subpages
 - `content/posts`: Markdown blog posts rendered by Nuxt Content
 - `content/notes`: Markdown memo notes rendered by Nuxt Content
 - `content.config.ts`: Nuxt Content collection definitions
