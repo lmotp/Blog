@@ -6,8 +6,6 @@
     </div>
 
     <nav class="app-nav" aria-label="Primary">
-      <NuxtLink to="/posts/reading" class="app-nav-link">읽는 중</NuxtLink>
-      <NuxtLink to="/posts/to-read" class="app-nav-link">읽을 글</NuxtLink>
       <details class="app-nav-accordion" :open="isNotesOpen">
         <summary class="app-nav-link app-nav-summary">노트</summary>
         <div class="app-nav-subnav" aria-label="노트 분류">
@@ -16,6 +14,8 @@
           <NuxtLink to="/notes/vue" class="app-nav-sublink">Vue 노트</NuxtLink>
         </div>
       </details>
+      <NuxtLink to="/posts/reading" class="app-nav-link">읽는 중</NuxtLink>
+      <NuxtLink to="/posts/to-read" class="app-nav-link">읽을 글</NuxtLink>
       <NuxtLink to="/posts/archive" class="app-nav-link">아카이브</NuxtLink>
     </nav>
 

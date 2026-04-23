@@ -16,7 +16,6 @@
 </template>
 
 <script setup lang="ts">
-import type { Note } from '~/types/note'
 import NoteListItem from './NoteListItem.vue'
 
 const props = defineProps<{
@@ -29,7 +28,7 @@ const { data: noteCollection } = await useAsyncData(`notes-${props.category.toLo
   return queryCollection('notes')
     .select('path', 'title', 'description', 'category', 'date')
     .order('date', 'DESC')
-    .all<Note>()
+    .all()
 })
 
 const notes = computed(() => {

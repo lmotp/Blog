@@ -27,19 +27,17 @@
 </template>
 
 <script setup lang="ts">
-import type { Note } from '~/types/note'
-
 const { data: noteCollection } = await useAsyncData('notes-index-summary', () => {
   return queryCollection('notes')
     .select('path', 'title', 'description', 'category', 'date')
     .order('date', 'DESC')
-    .all<Note>()
+    .all()
 })
 
 const notes = computed(() => noteCollection.value ?? [])
 
 const categories = computed(() => {
-  const categoryMap = new Map<string, Note[]>()
+  const categoryMap = new Map<string, { category: string }[]>()
 
   notes.value.forEach((note) => {
     const key = note.category.trim()

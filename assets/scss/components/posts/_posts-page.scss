@@ -60,6 +60,46 @@
   &__item-meta {
     @include meta;
   }
+
+  &__group {
+    display: grid;
+    gap: 14px;
+    padding-top: 6px;
+
+    &:not(:last-child) {
+      margin-bottom: 30px;
+    }
+  }
+
+  &__group-title {
+    margin: 0;
+    color: $foreground;
+    font-size: clamp(1.4rem, 2vw, 2rem);
+    line-height: 1.15;
+    font-weight: 700;
+  }
+
+  &__outline-list {
+    display: grid;
+    gap: 18px;
+    margin: 0;
+    padding-left: 22px;
+    color: $foreground;
+    list-style: disc;
+  }
+
+  &__outline-item {
+    margin: 0;
+    padding: 0;
+  }
+
+  &__outline-link {
+    @include item-link;
+    font-size: 1.18rem;
+    line-height: 1.45;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
 }
 
 .post-page {

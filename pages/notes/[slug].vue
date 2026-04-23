@@ -14,8 +14,6 @@
 </template>
 
 <script setup lang="ts">
-import type { Note } from '~/types/note'
-
 const route = useRoute()
 const slug = computed(() => {
   const value = route.params.slug
@@ -25,7 +23,7 @@ const slug = computed(() => {
 
 const note = await queryCollection('notes')
   .path(`/notes/${slug.value}`)
-  .first<Note>()
+  .first()
 
 if (!note) {
   throw createError({

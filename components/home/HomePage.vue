@@ -54,14 +54,12 @@
 import BaseButton from '~/components/base/BaseButton.vue'
 import NoteListItem from '~/components/notes/NoteListItem.vue'
 import PostListItem from '~/components/posts/PostListItem.vue'
-import type { BlogPost } from '~/types/blog'
-import type { Note } from '~/types/note'
 
 const { data: posts } = await useAsyncData('home-posts', () => {
   return queryCollection('posts')
     .select('path', 'title', 'description', 'category', 'readingStatus', 'readingCategory', 'date')
     .order('date', 'DESC')
-    .all<BlogPost>()
+    .all()
 })
 
 const { data: notes } = await useAsyncData('home-notes', () => {
@@ -69,7 +67,7 @@ const { data: notes } = await useAsyncData('home-notes', () => {
     .select('path', 'title', 'description', 'category', 'date')
     .order('date', 'DESC')
     .limit(3)
-    .all<Note>()
+    .all()
 })
 
 const readingPosts = computed(() => {

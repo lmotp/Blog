@@ -16,23 +16,25 @@
 </template>
 
 <script setup lang="ts">
-import type { BlogPost } from '~/types/blog'
-import PostListItem from '~/components/posts/PostListItem.vue'
+import type { BlogPost } from "~/types/blog";
+import PostListItem from "~/components/posts/PostListItem.vue";
+
+type PostReadingStatus = Exclude<BlogPost["readingStatus"], "archive">;
 
 const props = defineProps<{
-  lead: string
-  status: BlogPost['readingStatus']
-  title: string
-}>()
+  lead: string;
+  status: PostReadingStatus;
+  title: string;
+}>();
 
 const { data: posts } = await useAsyncData(`posts-${props.status}`, () => {
-  return queryCollection('posts')
-    .select('path', 'title', 'description', 'category', 'readingStatus', 'readingCategory', 'date')
-    .order('date', 'DESC')
-    .all<BlogPost>()
-})
+  return queryCollection("posts")
+    .select("path", "title", "description", "category", "readingStatus", "readingCategory", "date")
+    .order("date", "DESC")
+    .all();
+});
 
 const filteredPosts = computed(() => {
-  return (posts.value ?? []).filter((post) => post.readingStatus === props.status)
-})
+  return (posts.value ?? []).filter((post) => post.readingStatus === props.status);
+});
 </script>

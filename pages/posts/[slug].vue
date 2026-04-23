@@ -14,8 +14,6 @@
 </template>
 
 <script setup lang="ts">
-import type { BlogPost } from '~/types/blog'
-
 const route = useRoute()
 const slug = computed(() => {
   const value = route.params.slug
@@ -25,7 +23,7 @@ const slug = computed(() => {
 
 const post = await queryCollection('posts')
   .path(`/posts/${slug.value}`)
-  .first<BlogPost>()
+  .first()
 
 if (!post) {
   throw createError({
