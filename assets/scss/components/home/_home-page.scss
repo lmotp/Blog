@@ -1,5 +1,5 @@
-@use '../../settings/tokens' as *;
-@use '../../settings/mixins' as *;
+@use "../../settings/tokens" as *;
+@use "../../settings/mixins" as *;
 
 .home-page {
   display: grid;
@@ -38,12 +38,8 @@
 
   &__section {
     display: grid;
-    gap: 18px;
+    gap: 24px;
     padding-top: 6px;
-  }
-
-  &__section--split {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   &__section-head {
@@ -54,145 +50,10 @@
   &__section-title {
     @include page-title(clamp(1.2rem, 1.8vw, 1.6rem), 1.2);
   }
-
-  &__skills {
-    @include list-reset;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-
-  &__skill-item {
-    margin: 0;
-    padding: 14px 0;
-    color: $text-subtle;
-    font-size: 0.98rem;
-    font-weight: 700;
-  }
-
-  &__experience-list {
-    display: grid;
-    gap: 18px;
-  }
-
-  &__experience-item {
-    display: grid;
-    gap: 10px;
-    padding: 18px 0 0;
-  }
-
-  &__experience-header {
-    display: flex;
-    align-items: start;
-    justify-content: space-between;
-    gap: 16px;
-  }
-
-  &__experience-company {
-    @include eyebrow();
-  }
-
-  &__experience-title {
-    margin: 0;
-    color: $foreground;
-    font-size: 1.08rem;
-    line-height: 1.45;
-  }
-
-  &__experience-period {
-    @include meta;
-    white-space: nowrap;
-  }
-
-  &__experience-items {
-    display: grid;
-    gap: 10px;
-    margin: 0;
-    padding-left: 18px;
-    color: $text-subtle;
-    line-height: 1.7;
-  }
-
-  &__contact-card,
-  &__direction-card {
-    display: grid;
-    gap: 12px;
-    padding-top: 8px;
-  }
-
-  &__contact-list {
-    display: grid;
-    gap: 8px;
-  }
-
-  &__contact-link {
-    color: $foreground;
-    font-weight: 700;
-
-    &:hover {
-      color: $brand-strong;
-    }
-  }
-
-  &__direction-list {
-    display: grid;
-    gap: 10px;
-    margin: 0;
-    padding-left: 18px;
-    color: $text-subtle;
-    line-height: 1.7;
-  }
-
-  &__post-list {
-    @include list-reset;
-  }
-
-  &__post-item {
-    @include item-row(18px 0, 6px);
-  }
-
-  &__post-item-head {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 10px;
-  }
-
-  &__post-category {
-    @include eyebrow();
-    font-size: 0.78rem;
-  }
-
-  &__post-link {
-    @include item-link;
-  }
-
-  &__post-meta {
-    @include meta;
-  }
-
-  &__post-description {
-    margin: 0;
-    color: $text-subtle;
-    line-height: 1.7;
-  }
 }
 
 @media (max-width: 1024px) {
   .home-page {
-    &__skills,
-    &__section--split {
-      grid-template-columns: 1fr;
-    }
-
-    &__experience-header {
-      flex-direction: column;
-    }
-  }
-}
-
-@media (max-width: 720px) {
-  .home-page {
-    &__skills {
-      grid-template-columns: 1fr;
-    }
+    gap: 24px;
   }
 }

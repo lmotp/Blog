@@ -1,10 +1,10 @@
 <template>
   <section class="notes-category-page">
     <header class="notes-category-page__header">
-      <p class="notes-category-page__eyebrow">메모장</p>
+      <p class="notes-category-page__eyebrow">노트</p>
       <h1 class="notes-category-page__title">{{ title }}</h1>
       <p class="notes-category-page__lead">{{ lead }}</p>
-      <p class="notes-category-page__meta">{{ notes.length }}개의 메모</p>
+      <p class="notes-category-page__meta">{{ notes.length }}개의 노트</p>
     </header>
 
     <div class="notes-category-page__divider" />

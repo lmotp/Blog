@@ -1,5 +1,5 @@
-@use '../../settings/tokens' as *;
-@use '../../settings/mixins' as *;
+@use "../../settings/tokens" as *;
+@use "../../settings/mixins" as *;
 
 .app-header {
   position: sticky;
@@ -43,11 +43,6 @@
     gap: 2px;
     padding-top: 0;
 
-    .app-nav-group {
-      display: grid;
-      gap: 4px;
-    }
-
     .app-nav-link {
       @include nav-entry(18px, 42px, 2px);
       @include nav-dot(8px, 4px);
@@ -81,9 +76,13 @@
         }
 
         &::after {
-          content: '▾';
-          color: $brand-strong;
-          font-size: 0.85rem;
+          content: "";
+          width: 16px;
+          height: 16px;
+          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23006780' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='lucide lucide-chevron-down-icon lucide-chevron-down'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+          background-size: contain;
+          background-repeat: no-repeat;
+          background-position: center;
           transition: transform 0.2s ease;
         }
       }
@@ -115,26 +114,20 @@
         }
       }
     }
+  }
 
-    .app-sidebar-note {
-      display: grid;
-      gap: 8px;
-      align-self: end;
-      padding-top: 16px;
+  .app-sidebar-note {
+    display: grid;
+    gap: 8px;
+    align-self: end;
+    padding-top: 16px;
 
-      .app-sidebar-note__title {
-        font-size: 0.82rem;
-        font-weight: 800;
-        color: $brand-strong;
-        text-transform: uppercase;
-        letter-spacing: 0.08em;
-      }
-
-      .app-sidebar-note__text {
-        font-size: 0.94rem;
-        line-height: 1.6;
-        color: $text-subtle;
-      }
+    .app-sidebar-note__title {
+      font-size: 0.82rem;
+      font-weight: 800;
+      color: $brand-strong;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
     }
   }
 }

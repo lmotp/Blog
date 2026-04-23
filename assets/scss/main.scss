@@ -4,10 +4,11 @@
 @use './components/base/button';
 @use './components/base/icon';
 @use './components/base/card';
+@use './components/about/about-page';
 @use './components/layout/app-header';
 @use './components/layout/app-footer';
 @use './components/home/home-page';
-@use './components/debt/debt-page';
+@use './components/notes/notes-index-page';
 @use './components/posts/posts-page';
 @use './components/notes/notes-category-page';
 @use './components/error/error-page';

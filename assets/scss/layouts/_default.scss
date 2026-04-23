@@ -1,4 +1,4 @@
-@use '../settings/tokens' as *;
+@use "../settings/tokens" as *;
 
 .app-shell {
   min-height: 100svh;
@@ -14,11 +14,10 @@
   }
 
   .app-main {
-    width: min(100%, 980px);
+    width: 100%;
     margin: 0;
     min-width: 0;
     padding: 48px 40px 56px;
-    border-left: 1px solid #eceff2;
   }
 }
 
