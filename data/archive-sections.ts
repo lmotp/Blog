@@ -1,36 +1,28 @@
-export type ArchiveItemSource = {
+export type ArchiveItem = {
   href: string;
+  title?: string;
 };
 
-export type ArchiveResolvedItem = {
-  href: string;
+export type ArchiveSection = {
+  items: ArchiveItem[];
   title: string;
 };
 
-export type ArchiveSectionSource = {
-  items: ArchiveItemSource[];
-  title: string;
-};
-
-export type ArchiveSectionResolved = {
-  items: ArchiveResolvedItem[];
-  title: string;
-};
-
-export const archiveSections: ArchiveSectionSource[] = [
+export const archiveSections: ArchiveSection[] = [
   {
     title: "AI",
     items: [
-      { href: "https://news.hada.io/topic?id=27566" },
-      { href: "https://toss.tech/article/will-ai-replace-developers" },
+      { href: "https://toss.tech/article/will-ai-replace-developers", title: "개발자는 AI에게 대체될 것인가" },
+      { href: "https://velog.io/@teo/we-programmer", title: "md로 코딩하는 시대" },
+      { href: "https://goddaehee.tistory.com/567", title: "OpenAI Codex 서브에이전트" },
       {
-        href: "https://velog.io/@teo/we-programmer#2%EB%B6%80-md%EB%A1%9C-%EC%BD%94%EB%94%A9%ED%95%98%EB%8A%94-%EC%8B%9C%EB%8C%80",
+        href: "https://blog.nwlee.com/codex-work-context-maintainance",
+        title: "AI 에이전트에서 작업 맥락을 관리하기 위해 사용한 방법",
       },
-      { href: "https://goddaehee.tistory.com/567" },
     ],
   },
   {
     title: "JavaScript",
-    items: [],
+    items: [{ href: "https://developer.mozilla.org/ko/docs/Web/JavaScript", title: "JavaScript 문서" }],
   },
 ];

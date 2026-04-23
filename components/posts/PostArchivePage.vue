@@ -9,7 +9,7 @@
     <div class="posts-archive-page__divider" />
 
     <section
-      v-for="section in resolvedSections"
+      v-for="section in archiveSections"
       :id="toKebabCase(section.title)"
       :key="section.title"
       class="posts-archive-page__section"
@@ -24,7 +24,7 @@
             :rel="isExternalHref(item.href) ? 'noreferrer noopener' : undefined"
             :target="isExternalHref(item.href) ? '_blank' : undefined"
           >
-            {{ item.title }}
+            {{ item.title ?? item.href }}
           </a>
         </li>
       </ul>
@@ -33,10 +33,8 @@
 </template>
 
 <script setup lang="ts">
+import { archiveSections } from "~/data/archive-sections";
 import { isExternalHref } from "~/utils/archive";
-import { useArchiveLinksQuery } from "~/composables/useArchiveLinksQuery";
-
-const { data: resolvedSections } = useArchiveLinksQuery();
 
 function toKebabCase(value: string) {
   return value
