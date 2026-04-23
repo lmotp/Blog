@@ -1,5 +1,10 @@
 export default defineNuxtConfig({
   modules: ['@pinia/nuxt', '@nuxt/content'],
+  nitro: {
+    prerender: {
+      routes: ['/api/posts/archive-links'],
+    },
+  },
   devtools: {
     enabled: true,
   },
