@@ -1,0 +1,63 @@
+@use "../../settings/tokens" as *;
+@use "../../settings/mixins" as *;
+
+.posts-archive-page {
+  @include stack(28px);
+
+  &__header {
+    @include stack(10px);
+  }
+
+  &__eyebrow {
+    @include eyebrow();
+  }
+
+  &__title {
+    @include page-title(clamp(2.4rem, 4vw, 3.6rem), 1.05);
+  }
+
+  &__lead {
+    @include lead(72ch, 1rem);
+  }
+
+  &__divider {
+    height: 1px;
+    margin: 4px 0 0;
+    background: transparent;
+  }
+
+  &__section {
+    display: grid;
+    gap: 14px;
+  }
+
+  &__section-title {
+    margin: 0;
+    color: $foreground;
+    font-size: clamp(1.5rem, 2.2vw, 2rem);
+    line-height: 1.15;
+    font-weight: 700;
+  }
+
+  &__list {
+    display: grid;
+    gap: 18px;
+    margin: 0;
+    padding-left: 22px;
+    list-style: disc;
+  }
+
+  &__item {
+    margin: 0;
+    padding: 0;
+  }
+
+  &__link {
+    @include item-link;
+    font-size: 1.15rem;
+    line-height: 1.45;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+}
+
