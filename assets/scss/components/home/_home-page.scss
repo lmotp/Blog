@@ -3,12 +3,12 @@
 
 .home-page {
   display: grid;
-  gap: 28px;
+  gap: 30px;
 
   &__hero {
     display: grid;
-    gap: 12px;
-    padding: 0 0 8px;
+    gap: 10px;
+    padding: 0 0 6px;
   }
 
   &__eyebrow,
@@ -17,42 +17,51 @@
   }
 
   &__title {
-    @include page-title(clamp(2.6rem, 4.8vw, 4.1rem), 1);
+    @include page-title(clamp(2.4rem, 4.2vw, 3.7rem), 1);
   }
 
   &__lead,
   &__summary {
-    @include lead(72ch, 1.05rem);
-  }
-
-  &__summary {
-    margin-top: 8px;
-  }
-
-  &__actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    margin-top: 8px;
+    @include lead(66ch, 1.02rem);
   }
 
   &__section {
     display: grid;
-    gap: 24px;
-    padding-top: 6px;
+    gap: 18px;
   }
 
   &__section-head {
     display: grid;
-    gap: 6px;
+    gap: 4px;
   }
 
   &__section-title {
-    @include page-title(clamp(1.2rem, 1.8vw, 1.6rem), 1.2);
+    @include page-title(clamp(1.15rem, 1.7vw, 1.45rem), 1.2);
   }
 
   &__post-list {
     @include list-reset;
+    gap: 16px;
+  }
+
+  &__note-list {
+    @include list-reset;
+    gap: 14px;
+  }
+
+  &__note-item {
+    display: grid;
+    gap: 4px;
+  }
+
+  &__note-link {
+    @include item-link;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  &__note-lead {
+    @include meta;
   }
 }
 

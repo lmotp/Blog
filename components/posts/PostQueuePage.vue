@@ -2,8 +2,8 @@
   <section class="posts-queue-page">
     <header class="posts-queue-page__header">
       <p class="posts-queue-page__eyebrow">글</p>
-      <h1 class="posts-queue-page__title">읽기 목록</h1>
-      <p class="posts-queue-page__lead">카테고리별로 모은 읽는 중인 글과 읽을 글입니다.</p>
+      <h1 class="posts-queue-page__title">읽을 글</h1>
+      <p class="posts-queue-page__lead">카테고리별로 정리한 읽을 글 목록입니다.</p>
     </header>
 
     <div class="posts-queue-page__divider" />
@@ -22,7 +22,6 @@
             v-for="item in category.items"
             :key="item.href"
             :href="item.href"
-            :status="item.status"
             :title="item.title"
           />
         </ul>

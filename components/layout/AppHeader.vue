@@ -14,7 +14,7 @@
           <NuxtLink to="/notes/vue" class="app-nav-sublink">Vue 노트</NuxtLink>
         </div>
       </details>
-      <NuxtLink to="/posts/reading" class="app-nav-link">읽기 목록</NuxtLink>
+      <NuxtLink to="/posts/reading" class="app-nav-link">읽을 글</NuxtLink>
       <NuxtLink to="/posts/archive" class="app-nav-link">아카이브</NuxtLink>
     </nav>
 
