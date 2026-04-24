@@ -14,6 +14,8 @@
 </template>
 
 <script setup lang="ts">
+import { useBlogSeo } from '~/composables/useBlogSeo'
+
 const route = useRoute()
 const slug = computed(() => {
   const value = route.params.slug
@@ -31,4 +33,11 @@ if (!post) {
     statusMessage: '게시물을 찾을 수 없습니다.',
   })
 }
+
+useBlogSeo({
+  title: post.title,
+  description: post.description,
+  path: route.path,
+  type: 'article',
+})
 </script>

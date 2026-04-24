@@ -1,0 +1,47 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="120" y1="52" x2="1080" y2="578" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="0.52" stop-color="#EFFAFF"/>
+      <stop offset="1" stop-color="#D9F3FB"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="146" y1="116" x2="408" y2="380" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#35C5F0"/>
+      <stop offset="1" stop-color="#006780"/>
+    </linearGradient>
+    <filter id="shadow" x="-20" y="-20" width="1240" height="670" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="16" stdDeviation="20" flood-color="#0B3A4A" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="630" rx="48" fill="url(#bg)"/>
+
+  <rect x="56" y="56" width="1088" height="518" rx="40" fill="#FFFFFF" filter="url(#shadow)"/>
+
+  <circle cx="200" cy="184" r="82" fill="#EAF8FD"/>
+  <path d="M160 146H240" stroke="url(#accent)" stroke-width="18" stroke-linecap="round"/>
+  <path d="M160 184H272" stroke="#006780" stroke-width="18" stroke-linecap="round"/>
+  <path d="M160 222H236" stroke="url(#accent)" stroke-width="18" stroke-linecap="round"/>
+  <circle cx="272" cy="222" r="10" fill="#35C5F0"/>
+
+  <text x="312" y="168" fill="#006780" font-family="Pretendard, Apple SD Gothic Neo, Noto Sans KR, sans-serif" font-size="28" font-weight="700" letter-spacing="0.06em">BLOG</text>
+  <text x="312" y="236" fill="#111827" font-family="Pretendard, Apple SD Gothic Neo, Noto Sans KR, sans-serif" font-size="62" font-weight="800">읽고, 정리하고,</text>
+  <text x="312" y="300" fill="#111827" font-family="Pretendard, Apple SD Gothic Neo, Noto Sans KR, sans-serif" font-size="62" font-weight="800">실험한 내용을 모읍니다.</text>
+  <text x="312" y="372" fill="#4B5563" font-family="Pretendard, Apple SD Gothic Neo, Noto Sans KR, sans-serif" font-size="28" font-weight="500">Vue, Nuxt, CSS, JavaScript, 메모, 아카이빙을 정리하는 개발 블로그</text>
+
+  <rect x="312" y="416" width="168" height="52" rx="26" fill="#35C5F0"/>
+  <text x="396" y="450" text-anchor="middle" fill="#FFFFFF" font-family="Pretendard, Apple SD Gothic Neo, Noto Sans KR, sans-serif" font-size="22" font-weight="700">Developer Blog</text>
+
+  <rect x="558" y="416" width="170" height="52" rx="26" fill="#EAF8FD"/>
+  <text x="643" y="450" text-anchor="middle" fill="#006780" font-family="Pretendard, Apple SD Gothic Neo, Noto Sans KR, sans-serif" font-size="22" font-weight="700">Markdown</text>
+
+  <rect x="770" y="416" width="206" height="52" rx="26" fill="#EAF8FD"/>
+  <text x="873" y="450" text-anchor="middle" fill="#006780" font-family="Pretendard, Apple SD Gothic Neo, Noto Sans KR, sans-serif" font-size="22" font-weight="700">Notes & Archive</text>
+
+  <path d="M820 142C872 114 938 114 990 142" stroke="#35C5F0" stroke-width="10" stroke-linecap="round"/>
+  <path d="M832 176C876 154 934 154 978 176" stroke="#006780" stroke-width="10" stroke-linecap="round"/>
+  <circle cx="1014" cy="176" r="12" fill="#35C5F0"/>
+
+  <rect x="90" y="506" width="1020" height="1" fill="#DCEFF7"/>
+  <text x="90" y="554" fill="#6B7280" font-family="Pretendard, Apple SD Gothic Neo, Noto Sans KR, sans-serif" font-size="22" font-weight="500">박철순의 개발 블로그 · Nuxt 3 · 문서형 기록</text>
+</svg>

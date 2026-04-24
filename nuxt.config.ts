@@ -1,3 +1,5 @@
+import { blogSite } from './data/site'
+
 export default defineNuxtConfig({
   modules: ['@pinia/nuxt', '@nuxt/content'],
   devtools: {
@@ -6,8 +8,14 @@ export default defineNuxtConfig({
   css: ['~/assets/scss/main.scss'],
   app: {
     head: {
-      title: 'Blog',
+      title: blogSite.name,
+      titleTemplate: `%s · ${blogSite.name}`,
       link: [
+        {
+          rel: 'icon',
+          type: 'image/svg+xml',
+          href: '/favicon.svg',
+        },
         {
           rel: 'preconnect',
           href: 'https://cdn.jsdelivr.net',
@@ -25,7 +33,63 @@ export default defineNuxtConfig({
         },
         {
           name: 'description',
-          content: 'Nuxt starter for the Blog repository',
+          content: blogSite.description,
+        },
+        {
+          name: 'keywords',
+          content: 'Nuxt, Vue, 개발 블로그, CSS, JavaScript, 메모, 아카이브',
+        },
+        {
+          property: 'og:site_name',
+          content: blogSite.name,
+        },
+        {
+          property: 'og:locale',
+          content: blogSite.locale,
+        },
+        {
+          property: 'og:type',
+          content: 'website',
+        },
+        {
+          property: 'og:title',
+          content: blogSite.name,
+        },
+        {
+          property: 'og:description',
+          content: blogSite.description,
+        },
+        {
+          name: 'twitter:card',
+          content: 'summary_large_image',
+        },
+        {
+          name: 'twitter:title',
+          content: blogSite.name,
+        },
+        {
+          name: 'twitter:description',
+          content: blogSite.description,
+        },
+        {
+          name: 'theme-color',
+          content: blogSite.themeColor,
+        },
+        {
+          name: 'author',
+          content: blogSite.author,
+        },
+        {
+          name: 'application-name',
+          content: blogSite.name,
+        },
+        {
+          name: 'apple-mobile-web-app-title',
+          content: blogSite.name,
+        },
+        {
+          name: 'format-detection',
+          content: 'telephone=no',
         },
       ],
       htmlAttrs: {

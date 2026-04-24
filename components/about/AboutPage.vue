@@ -72,7 +72,7 @@
 </template>
 
 <script setup lang="ts">
-import BaseButton from "~/components/base/BaseButton.vue";
+import BaseButton from '~/components/base/BaseButton.vue'
 
 const skills = ["HTML", "CSS", "SCSS", "JavaScript", "Vue", "Nuxt"];
 
@@ -97,9 +97,5 @@ const experiences = [
       "반응형 UI와 QA를 통해 다양한 환경에서 일관된 경험을 제공했습니다.",
     ],
   },
-];
-
-useHead({
-  title: "About me",
-});
+]
 </script>

@@ -4,4 +4,10 @@
 
 <script setup lang="ts">
 import AboutPage from '~/components/about/AboutPage.vue'
+import { useBlogSeo } from '~/composables/useBlogSeo'
+
+useBlogSeo({
+  title: 'About me',
+  description: '박철순의 소개와 경력, 기술 스택을 정리한 페이지입니다.',
+})
 </script>

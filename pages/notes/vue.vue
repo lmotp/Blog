@@ -8,4 +8,10 @@
 
 <script setup lang="ts">
 import NoteCategoryPage from '~/components/notes/NoteCategoryPage.vue'
+import { useBlogSeo } from '~/composables/useBlogSeo'
+
+useBlogSeo({
+  title: 'Vue 노트',
+  description: 'props, emit, slot, Composition API 패턴을 정리한 Vue 메모입니다.',
+})
 </script>

@@ -8,4 +8,10 @@
 
 <script setup lang="ts">
 import NoteCategoryPage from '~/components/notes/NoteCategoryPage.vue'
+import { useBlogSeo } from '~/composables/useBlogSeo'
+
+useBlogSeo({
+  title: 'JavaScript 노트',
+  description: '상태, 참조, 복사, 비동기 흐름을 정리한 JavaScript 메모입니다.',
+})
 </script>
