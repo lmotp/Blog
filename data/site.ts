@@ -5,6 +5,12 @@ export const blogSite = {
   author: "박철순",
   locale: "ko_KR",
   themeColor: "#35C5F0",
-  ogImage: "/og-image.svg",
-  favicon: "/favicon.svg",
+  ogImage: "og-image.svg",
+  favicon: "favicon.svg",
 } as const;
+
+export const blogSiteAssetUrl = (path: string) => {
+  const normalizedPath = path.replace(/^\/+/, "")
+
+  return new URL(normalizedPath, blogSite.url).toString()
+}

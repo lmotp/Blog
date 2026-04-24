@@ -1,4 +1,4 @@
-import { blogSite } from './data/site'
+import { blogSite, blogSiteAssetUrl } from './data/site'
 
 export default defineNuxtConfig({
   modules: ['@pinia/nuxt', '@nuxt/content'],
@@ -14,7 +14,7 @@ export default defineNuxtConfig({
         {
           rel: 'icon',
           type: 'image/svg+xml',
-          href: '/favicon.svg',
+          href: blogSiteAssetUrl(blogSite.favicon),
         },
         {
           rel: 'preconnect',
