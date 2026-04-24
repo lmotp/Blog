@@ -5,7 +5,7 @@ export const blogSite = {
   author: "박철순",
   locale: "ko_KR",
   themeColor: "#35C5F0",
-  ogImage: "og-image.png",
+  ogImage: "og-image.png?v=2",
   favicon: "favicon.svg",
 } as const;
 
