@@ -60,6 +60,22 @@ export default defineNuxtConfig({
           content: blogSite.description,
         },
         {
+          property: 'og:image',
+          content: blogSiteAssetUrl(blogSite.ogImage),
+        },
+        {
+          property: 'og:image:type',
+          content: 'image/png',
+        },
+        {
+          property: 'og:image:width',
+          content: '1200',
+        },
+        {
+          property: 'og:image:height',
+          content: '630',
+        },
+        {
           name: 'twitter:card',
           content: 'summary_large_image',
         },
@@ -70,6 +86,18 @@ export default defineNuxtConfig({
         {
           name: 'twitter:description',
           content: blogSite.description,
+        },
+        {
+          name: 'twitter:image',
+          content: blogSiteAssetUrl(blogSite.ogImage),
+        },
+        {
+          name: 'twitter:image:width',
+          content: '1200',
+        },
+        {
+          name: 'twitter:image:height',
+          content: '630',
         },
         {
           name: 'theme-color',

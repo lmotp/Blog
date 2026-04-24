@@ -1,4 +1,4 @@
-import { blogSite, blogSiteAssetUrl } from '~/data/site'
+import { blogSite } from '~/data/site'
 
 type BlogSeoOptions = {
   description?: string
@@ -29,13 +29,9 @@ export function useBlogSeo(options: BlogSeoOptions) {
     ogSiteName: blogSite.name,
     ogLocale: blogSite.locale,
     ogUrl: canonicalUrl.value,
-    ogImage: blogSiteAssetUrl(blogSite.ogImage),
-    ogImageAlt: `${blogSite.name} 대표 이미지`,
     twitterCard: 'summary_large_image',
     twitterTitle: options.title,
     twitterDescription: description.value,
-    twitterImage: blogSiteAssetUrl(blogSite.ogImage),
-    twitterImageAlt: `${blogSite.name} 대표 이미지`,
     author: blogSite.author,
     applicationName: blogSite.name,
     themeColor: blogSite.themeColor,
