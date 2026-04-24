@@ -1,0 +1,111 @@
+@use '../../settings/tokens' as *;
+@use '../../settings/mixins' as *;
+
+.note-content-page {
+  @include stack(32px);
+
+  &__hero {
+    @include stack(12px);
+    padding-bottom: 4px;
+  }
+
+  &__eyebrow {
+    @include eyebrow();
+  }
+
+  &__title {
+    @include page-title(clamp(2.4rem, 4.5vw, 3.8rem), 1);
+  }
+
+  &__lead {
+    @include lead(72ch, 1.02rem);
+  }
+
+  &__meta {
+    @include meta;
+  }
+
+  &__article {
+    @include prose-stack;
+    color: $foreground;
+
+    > :first-child {
+      margin-top: 0;
+    }
+
+    h2 {
+      margin: 1.2em 0 0.6em;
+      color: $foreground;
+      font-size: clamp(1.35rem, 2vw, 1.95rem);
+      line-height: 1.25;
+      font-weight: 800;
+    }
+
+    h3 {
+      margin: 1.1em 0 0.55em;
+      color: $foreground;
+      font-size: 1.15rem;
+      line-height: 1.3;
+      font-weight: 800;
+    }
+
+    p,
+    li {
+      @include prose-text;
+    }
+
+    ul,
+    ol {
+      display: grid;
+      gap: 10px;
+      margin: 0;
+      padding-left: 22px;
+    }
+
+    a {
+      color: $brand-strong;
+      font-weight: 600;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+
+      &:hover {
+        color: $brand;
+      }
+    }
+
+    code {
+      padding: 0.15em 0.4em;
+      border-radius: 4px;
+      background: rgba(53, 197, 240, 0.12);
+      color: $brand-strong;
+      font-size: 0.95em;
+    }
+
+    pre {
+      overflow-x: auto;
+      margin: 0;
+      padding: 18px;
+      border-radius: 16px;
+      background: #f5fbfd;
+      color: $foreground;
+      line-height: 1.75;
+      white-space: pre;
+    }
+
+    blockquote {
+      margin: 0;
+      padding: 14px 18px;
+      border-left: 3px solid rgba(53, 197, 240, 0.35);
+      color: $text-subtle;
+      background: rgba(53, 197, 240, 0.04);
+    }
+
+    .base-card {
+      margin-top: 4px;
+    }
+
+    .base-card + .base-card {
+      margin-top: 0;
+    }
+  }
+}

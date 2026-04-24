@@ -1,4 +1,4 @@
-@use './tokens' as *;
+@use "./tokens" as *;
 
 @mixin stack($gap: 18px) {
   display: grid;
@@ -88,7 +88,7 @@
 
 @mixin nav-dot($left: 8px, $size: 4px) {
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     left: $left;
     top: 50%;

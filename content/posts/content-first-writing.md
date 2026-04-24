@@ -3,8 +3,6 @@ title: Markdown 우선 블로그 작성 흐름
 description: 글은 md로 쓰고, 뷰와 상태 관리는 Nuxt로 유지하는 운영 방식입니다.
 date: 2026-04-20
 category: Writing
-readingStatus: archive
-readingCategory: 글감
 ---
 
 # Markdown 우선 블로그 작성 흐름

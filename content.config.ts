@@ -21,8 +21,6 @@ export default defineContentConfig({
         description: z.string(),
         date: z.string(),
         category: z.string(),
-        readingStatus: z.enum(["reading", "to-read", "archive"]),
-        readingCategory: z.string(),
         cover: z.string().optional(),
       }),
     }),

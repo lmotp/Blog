@@ -9,7 +9,7 @@
       </p>
 
       <div class="home-page__actions">
-        <BaseButton to="/posts/reading">읽는 중 보기</BaseButton>
+        <BaseButton to="/posts/reading">읽기 목록 보기</BaseButton>
         <BaseButton to="/notes" secondary>노트 카테고리</BaseButton>
         <BaseButton to="/about" secondary>About me</BaseButton>
       </div>
@@ -18,11 +18,18 @@
     <section class="home-page__section">
       <div class="home-page__section-head">
         <p class="home-page__section-eyebrow">읽기</p>
-        <h2 class="home-page__section-title">읽는 중</h2>
+        <h2 class="home-page__section-title">읽기 목록</h2>
       </div>
 
       <ul class="home-page__post-list">
-        <PostListItem v-for="post in readingPosts" :key="post.path" :post="post" />
+        <PostLinkItem
+          v-for="item in readingQueuePreview"
+          :key="item.href"
+          :href="item.href"
+          :meta="item.meta"
+          :status="item.status"
+          :title="item.title"
+        />
       </ul>
     </section>
 
@@ -53,13 +60,12 @@
 <script setup lang="ts">
 import BaseButton from '~/components/base/BaseButton.vue'
 import NoteListItem from '~/components/notes/NoteListItem.vue'
+import PostLinkItem from '~/components/posts/PostLinkItem.vue'
 import PostListItem from '~/components/posts/PostListItem.vue'
+import { postQueueCategories } from '~/data/post-queue'
 
 const { data: posts } = await useAsyncData('home-posts', () => {
-  return queryCollection('posts')
-    .select('path', 'title', 'description', 'category', 'readingStatus', 'readingCategory', 'date')
-    .order('date', 'DESC')
-    .all()
+  return queryCollection('posts').select('path', 'title', 'description', 'category', 'date').order('date', 'DESC').all()
 })
 
 const { data: notes } = await useAsyncData('home-notes', () => {
@@ -70,9 +76,16 @@ const { data: notes } = await useAsyncData('home-notes', () => {
     .all()
 })
 
-const readingPosts = computed(() => {
-  return (posts.value ?? [])
-    .filter((post) => post.readingStatus === 'reading')
+const readingQueuePreview = computed(() => {
+  return postQueueCategories
+    .flatMap((category) =>
+      category.items.map((item) => ({
+        href: item.href,
+        meta: category.title,
+        status: item.status,
+        title: item.title,
+      })),
+    )
     .slice(0, 3)
 })
 

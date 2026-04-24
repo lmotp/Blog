@@ -1,17 +1,7 @@
 <template>
-  <NoteCategoryPage
-    category="Vue"
-    lead="props, emit, slot 같은 Vue 컴포넌트 패턴을 정리한 노트입니다."
-    title="Vue 노트"
-  />
+  <NoteContentPage content-path="/notes/vue" />
 </template>
 
 <script setup lang="ts">
-import NoteCategoryPage from '~/components/notes/NoteCategoryPage.vue'
-import { useBlogSeo } from '~/composables/useBlogSeo'
-
-useBlogSeo({
-  title: 'Vue 노트',
-  description: 'props, emit, slot, Composition API 패턴을 정리한 Vue 메모입니다.',
-})
+import NoteContentPage from '~/components/notes/NoteContentPage.vue'
 </script>

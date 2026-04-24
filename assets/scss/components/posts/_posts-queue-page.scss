@@ -1,0 +1,51 @@
+@use "../../settings/tokens" as *;
+@use "../../settings/mixins" as *;
+
+.posts-queue-page {
+  @include stack(28px);
+
+  &__header {
+    @include stack(10px);
+  }
+
+  &__eyebrow {
+    @include eyebrow();
+  }
+
+  &__title {
+    @include page-title(clamp(2.4rem, 4vw, 3.6rem), 1.05);
+  }
+
+  &__lead {
+    @include lead(72ch, 1rem);
+  }
+
+  &__divider {
+    height: 1px;
+    margin: 4px 0 0;
+    background: transparent;
+  }
+
+  &__categories {
+    @include stack(40px);
+  }
+
+  &__category {
+    display: grid;
+    gap: 16px;
+  }
+
+  &__category-title {
+    margin: 0;
+    color: $foreground;
+    font-size: clamp(1.2rem, 1.8vw, 1.5rem);
+    line-height: 1.2;
+    font-weight: 700;
+  }
+
+  &__list {
+    @include list-reset;
+    gap: 18px;
+    padding-left: 0;
+  }
+}

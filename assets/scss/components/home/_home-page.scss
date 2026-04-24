@@ -50,6 +50,10 @@
   &__section-title {
     @include page-title(clamp(1.2rem, 1.8vw, 1.6rem), 1.2);
   }
+
+  &__post-list {
+    @include list-reset;
+  }
 }
 
 @media (max-width: 1024px) {

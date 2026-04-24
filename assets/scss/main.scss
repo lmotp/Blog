@@ -9,6 +9,9 @@
 @use './components/layout/app-footer';
 @use './components/home/home-page';
 @use './components/notes/notes-index-page';
+@use './components/notes/notes-content-page';
+@use './components/posts/posts-link-item';
+@use './components/posts/posts-queue-page';
 @use './components/posts/posts-archive-page';
 @use './components/posts/posts-page';
 @use './components/notes/notes-category-page';

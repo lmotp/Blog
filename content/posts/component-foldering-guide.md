@@ -3,8 +3,6 @@ title: 컴포넌트 폴더를 나누는 기준
 description: base, layout, page 단위로 컴포넌트를 나눌 때 어떤 기준으로 구분할지 정리한 샘플 글입니다.
 date: 2026-04-22
 category: Components
-readingStatus: to-read
-readingCategory: 글감
 ---
 
 # 컴포넌트 폴더를 나누는 기준

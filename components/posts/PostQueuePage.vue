@@ -1,0 +1,45 @@
+<template>
+  <section class="posts-queue-page">
+    <header class="posts-queue-page__header">
+      <p class="posts-queue-page__eyebrow">글</p>
+      <h1 class="posts-queue-page__title">읽기 목록</h1>
+      <p class="posts-queue-page__lead">카테고리별로 모은 읽는 중인 글과 읽을 글입니다.</p>
+    </header>
+
+    <div class="posts-queue-page__divider" />
+
+    <div class="posts-queue-page__categories">
+      <section
+        v-for="category in postQueueCategories"
+        :id="toKebabCase(category.title)"
+        :key="category.title"
+        class="posts-queue-page__category"
+      >
+        <h2 class="posts-queue-page__category-title">{{ category.title }}</h2>
+
+        <ul class="posts-queue-page__list">
+          <PostLinkItem
+            v-for="item in category.items"
+            :key="item.href"
+            :href="item.href"
+            :status="item.status"
+            :title="item.title"
+          />
+        </ul>
+      </section>
+    </div>
+  </section>
+</template>
+
+<script setup lang="ts">
+import PostLinkItem from './PostLinkItem.vue'
+import { postQueueCategories } from '~/data/post-queue'
+
+function toKebabCase(value: string) {
+  return value
+    .trim()
+    .toLowerCase()
+    .replace(/\s+/g, '-')
+    .replace(/[^a-z0-9가-힣-]/g, '')
+}
+</script>

@@ -6,7 +6,7 @@
       </NuxtLink>
     </div>
 
-    <p class="posts-page__item-meta">{{ post.readingCategory }} · {{ post.date }}</p>
+    <p class="posts-page__item-meta">{{ post.category }} · {{ post.date }}</p>
 
     <p v-if="post.description" class="posts-page__item-lead">
       {{ post.description }}

@@ -44,7 +44,7 @@
     padding-top: 0;
 
     .app-nav-link {
-      @include nav-entry(18px, 42px, 2px);
+      @include nav-entry(24px, 42px, 2px);
       @include nav-dot(8px, 4px);
       display: flex;
       align-items: center;
@@ -97,7 +97,7 @@
         padding-left: 12px;
 
         .app-nav-sublink {
-          @include nav-entry(20px, 36px, 1px);
+          @include nav-entry(26px, 36px, 1px);
           @include nav-dot(10px, 4px);
           font-size: 0.92rem;
 

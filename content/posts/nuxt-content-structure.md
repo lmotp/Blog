@@ -3,8 +3,6 @@ title: Nuxt Content 구조 잡는 법
 description: Markdown 파일을 content/posts에 두고 Nuxt 페이지에서 렌더링하는 기본 구조입니다.
 date: 2026-04-22
 category: Architecture
-readingStatus: reading
-readingCategory: 기술글
 ---
 
 # Nuxt Content 구조 잡는 법
