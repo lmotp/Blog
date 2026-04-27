@@ -12,5 +12,6 @@
 - Nuxt 3 코드는 KISS, DRY, SoC, Composition, Convention 중심으로 구성한다.
 - 함수형 코드는 pure, composition, side effect isolation 중심으로 구성한다.
 - UI 로직과 비즈니스 로직은 분리해서 작업한다.
+- Vitest 테스트의 `describe`와 `it` 설명은 한글로만 작성한다.
 - 커밋할 때는 메시지를 한글로 작성하고, `feat`, `fix`, `refactor`, `docs`, `chore` 같은 접두어를 상황에 맞게 적당히 사용한다.
 - 커밋 메시지는 짧고 명확하게, 실제 변경 내용만 드러나게 쓴다.

@@ -7,7 +7,7 @@
         <a class="about-page__contact-link" href="mailto:unoeye22@gmail.com">unoeye22@gmail.com</a>
         <a class="about-page__contact-link" href="tel:01054086369">010 5408 6369</a>
       </div>
-      <p class="about-page__lead">프론트엔드 개발자 | Vue3 / Nuxt3 | Design System</p>
+      <p class="about-page__lead">개발자 | Vue3 / Nuxt3 | Design System</p>
       <p class="about-page__summary">
         문제를 구조적으로 정리하고, 공통 컴포넌트와 디자인 시스템을 기반으로 협업 비용을 줄이는 데 관심이 있습니다.
       </p>
@@ -72,7 +72,7 @@
 </template>
 
 <script setup lang="ts">
-import BaseButton from '~/components/base/BaseButton.vue'
+import BaseButton from "~/components/base/BaseButton.vue";
 
 const skills = ["HTML", "CSS", "SCSS", "JavaScript", "Vue", "Nuxt"];
 
@@ -97,5 +97,5 @@ const experiences = [
       "반응형 UI와 QA를 통해 다양한 환경에서 일관된 경험을 제공했습니다.",
     ],
   },
-]
+];
 </script>

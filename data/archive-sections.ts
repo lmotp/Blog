@@ -25,4 +25,13 @@ export const archiveSections: ArchiveSection[] = [
     title: "JavaScript",
     items: [{ href: "https://developer.mozilla.org/ko/docs/Web/JavaScript", title: "JavaScript 문서" }],
   },
+  {
+    title: "개발자 커뮤니티",
+    items: [
+      {
+        href: "https://luminousmen.substack.com/p/drunk-post-things-ive-learned-as",
+        title: "시니어 엔지니어로서 배운 것들 (2021)",
+      },
+    ],
+  },
 ];

@@ -6,6 +6,7 @@
     "dev": "nuxt dev",
     "build": "nuxt build",
     "generate": "nuxt generate",
+    "test": "vitest run",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
   },
@@ -18,7 +19,9 @@
     "pinia": "^3.0.3"
   },
   "devDependencies": {
+    "@vitest/coverage-v8": "^4.1.5",
     "sass": "^1.77.8",
-    "typescript": "^5.8.3"
+    "typescript": "^5.8.3",
+    "vitest": "^4.1.5"
   }
 }
