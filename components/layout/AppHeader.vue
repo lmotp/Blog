@@ -8,47 +8,47 @@
       >
         홈
       </NuxtLink>
-      <span class="app-header__brand-subtitle">모아둔 것, 인사이트, 작업일지를 정리하는 블로그</span>
+      <span class="app-header__brand-subtitle">읽을 내용, 메모, 작업일지를 정리하는 블로그</span>
     </div>
 
     <nav class="app-header__nav" aria-label="주요 내비게이션">
-      <details class="app-header__accordion" :open="isInsightExpanded" @toggle="syncInsightExpanded">
+      <details class="app-header__accordion" :open="isMemoExpanded" @toggle="syncMemoExpanded">
         <summary
-          :id="insightSummaryId"
+          :id="memoSummaryId"
           class="app-header__link app-header__summary"
-          :aria-controls="insightSubnavId"
-          :aria-expanded="isInsightExpanded"
+          :aria-controls="memoSubnavId"
+          :aria-expanded="isMemoExpanded"
         >
-          인사이트
+          메모
         </summary>
-        <div :id="insightSubnavId" class="app-header__subnav" :aria-labelledby="insightSummaryId">
+        <div :id="memoSubnavId" class="app-header__subnav" :aria-labelledby="memoSummaryId">
           <NuxtLink
             to="/notes/css"
             class="app-header__sublink"
             :aria-current="isCurrentPath('/notes/css') ? 'page' : undefined"
           >
-            CSS
+            CSS 메모
           </NuxtLink>
           <NuxtLink
             to="/notes/javascript"
             class="app-header__sublink"
             :aria-current="isCurrentPath('/notes/javascript') ? 'page' : undefined"
           >
-            JavaScript
+            JavaScript 메모
           </NuxtLink>
           <NuxtLink
             to="/notes/v8-optimization"
             class="app-header__sublink"
             :aria-current="isCurrentPath('/notes/v8-optimization') ? 'page' : undefined"
           >
-            V8 최적화
+            V8 메모
           </NuxtLink>
           <NuxtLink
             to="/notes/vue"
             class="app-header__sublink"
             :aria-current="isCurrentPath('/notes/vue') ? 'page' : undefined"
           >
-            Vue
+            Vue 메모
           </NuxtLink>
         </div>
       </details>
@@ -94,7 +94,7 @@
         class="app-header__link"
         :aria-current="isCurrentPath('/posts/reading') ? 'page' : undefined"
       >
-        모아둔 것
+        읽을 내용
       </NuxtLink>
       <NuxtLink
         to="/posts/archive"
@@ -122,18 +122,18 @@ import { worklogSections } from '~/data/worklog-sections'
 
 const route = useRoute();
 
-const insightSummaryId = "insight-summary";
-const insightSubnavId = "insight-subnav";
+const memoSummaryId = "memo-summary";
+const memoSubnavId = "memo-subnav";
 const worklogSummaryId = "worklog-summary";
 const worklogSubnavId = "worklog-subnav";
 
-const isInsightExpanded = ref(false)
+const isMemoExpanded = ref(false)
 const isWorklogExpanded = ref(false)
 
 watch(
   () => route.path,
   (path) => {
-    isInsightExpanded.value = path.startsWith('/notes')
+    isMemoExpanded.value = path.startsWith('/notes')
     isWorklogExpanded.value = path.startsWith('/posts')
   },
   { immediate: true },
@@ -143,11 +143,11 @@ function isCurrentPath(path: string): boolean {
   return route.path === path
 }
 
-function syncInsightExpanded(event: Event): void {
+function syncMemoExpanded(event: Event): void {
   const target = event.currentTarget
 
   if (target instanceof HTMLDetailsElement) {
-    isInsightExpanded.value = target.open
+    isMemoExpanded.value = target.open
   }
 }
 
