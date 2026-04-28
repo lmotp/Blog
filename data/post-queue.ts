@@ -1,14 +1,14 @@
-export type PostQueueLink = {
+export type PostQueueLink = Readonly<{
   href: string;
   title: string;
-};
+}>;
 
-export type PostQueueCategory = {
-  items: PostQueueLink[];
+export type PostQueueCategory = Readonly<{
+  items: readonly PostQueueLink[];
   title: string;
-};
+}>;
 
-export const postQueueCategories: PostQueueCategory[] = [
+export const postQueueCategories: readonly PostQueueCategory[] = [
   {
     title: "JavaScript",
     items: [

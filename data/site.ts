@@ -1,6 +1,6 @@
 export const blogSite = {
   name: "Blog",
-  description: "박철순의 개발 블로그. Vue, Nuxt, CSS, JavaScript, 아카이빙과 메모를 정리합니다.",
+  description: "박철순의 개발 블로그. 읽을 내용, 메모, 작업일지를 정리합니다.",
   url: "https://lmotp.github.io/Blog/",
   author: "박철순",
   locale: "ko_KR",

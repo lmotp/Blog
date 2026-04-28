@@ -1,8 +1,8 @@
-export function isExternalHref(href: string) {
+export function isExternalHref(href: string): boolean {
   return /^https?:\/\//i.test(href);
 }
 
-export function toTitleFromPath(href: string) {
+export function toTitleFromPath(href: string): string {
   return (
     href
       .split("/")

@@ -8,7 +8,8 @@
         v-else
         class="post-link-item__link"
         :href="href"
-        :rel="'noreferrer noopener'"
+        :aria-label="externalLinkLabel"
+        rel="noreferrer noopener"
         target="_blank"
       >
         {{ title }}
@@ -29,4 +30,5 @@ const props = defineProps<{
 }>()
 
 const isExternal = computed(() => isExternalHref(props.href))
+const externalLinkLabel = computed(() => `${props.title} (새 창에서 열림)`)
 </script>

@@ -1,14 +1,14 @@
-export type ArchiveItem = {
+export type ArchiveItem = Readonly<{
   href: string;
   title?: string;
-};
+}>;
 
-export type ArchiveSection = {
-  items: ArchiveItem[];
+export type ArchiveSection = Readonly<{
+  items: readonly ArchiveItem[];
   title: string;
-};
+}>;
 
-export const archiveSections: ArchiveSection[] = [
+export const archiveSections: readonly ArchiveSection[] = [
   {
     title: "AI",
     items: [

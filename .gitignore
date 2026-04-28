@@ -9,5 +9,4 @@ coverage
 .env.*
 *.log
 .docs
-docs/
 .codex

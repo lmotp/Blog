@@ -54,6 +54,12 @@
       border-color: $brand;
       box-shadow: 0 12px 30px rgba(16, 24, 40, 0.08);
     }
+
+    &:focus-visible {
+      @include focus-ring();
+      border-color: $brand;
+      box-shadow: 0 12px 30px rgba(16, 24, 40, 0.08);
+    }
   }
 
   &__card-eyebrow {
@@ -78,10 +84,8 @@
     @include meta;
     margin-top: auto;
   }
-}
 
-@media (max-width: 1024px) {
-  .notes-index-page {
+  @media (max-width: 1024px) {
     &__grid {
       grid-template-columns: 1fr;
     }

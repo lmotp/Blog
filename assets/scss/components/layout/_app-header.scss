@@ -15,11 +15,11 @@
   height: 100dvh;
   overflow: auto;
 
-  .app-brand {
+  &__brand {
     display: grid;
     gap: 6px;
 
-    .app-brand-mark {
+    &-mark {
       display: inline-flex;
       align-items: center;
       gap: 10px;
@@ -27,113 +27,136 @@
       font-weight: 800;
       color: $foreground;
 
-      .app-brand__icon {
-        color: $brand;
+      &:focus-visible {
+        @include focus-ring();
+        color: $brand-strong;
       }
     }
 
-    .app-brand-subtitle {
+    &-subtitle {
       font-size: 0.9rem;
       color: $text-muted;
     }
   }
 
-  .app-nav {
+  &__nav {
     display: grid;
     gap: 2px;
     padding-top: 0;
+  }
 
-    .app-nav-link {
-      @include nav-entry(24px, 42px, 2px);
-      @include nav-dot(8px, 4px);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+  &__link {
+    @include nav-entry(0, 42px, 2px);
+    padding-left: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 
-      &:hover {
-        background: rgba(53, 197, 240, 0.04);
-        color: $brand-strong;
-      }
-
-      &.router-link-active,
-      &.router-link-exact-active {
-        color: $brand-strong;
-        border-left-color: $brand;
-      }
+    &:hover {
+      background: rgba(53, 197, 240, 0.04);
+      color: $brand-strong;
     }
 
-    .app-nav-accordion {
-      display: grid;
-      gap: 4px;
-
-      .app-nav-summary {
-        width: 100%;
-        list-style: none;
-        cursor: pointer;
-
-        &::-webkit-details-marker {
-          display: none;
-        }
-
-        &::after {
-          content: "";
-          width: 16px;
-          height: 16px;
-          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23006780' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='lucide lucide-chevron-down-icon lucide-chevron-down'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
-          background-size: contain;
-          background-repeat: no-repeat;
-          background-position: center;
-          transition: transform 0.2s ease;
-        }
-      }
-
-      &[open] > .app-nav-summary::after {
-        transform: rotate(180deg);
-      }
-
-      .app-nav-subnav {
-        display: grid;
-        gap: 0;
-        padding-left: 12px;
-
-        .app-nav-sublink {
-          @include nav-entry(26px, 36px, 1px);
-          @include nav-dot(10px, 4px);
-          font-size: 0.92rem;
-
-          &:hover {
-            background: rgba(53, 197, 240, 0.04);
-            color: $brand-strong;
-          }
-
-          &.router-link-active,
-          &.router-link-exact-active {
-            color: $brand-strong;
-            border-left-color: $brand;
-          }
-        }
-      }
+    &.router-link-active,
+    &.router-link-exact-active {
+      color: $brand-strong;
+      border-left-color: $brand;
     }
   }
 
-  .app-sidebar-note {
+  &__accordion {
+    display: grid;
+    gap: 4px;
+  }
+
+  &__summary {
+    width: 100%;
+    list-style: none;
+    cursor: pointer;
+
+    &::-webkit-details-marker {
+      display: none;
+    }
+
+    &::after {
+      content: "";
+      width: 16px;
+      height: 16px;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23006780' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='lucide lucide-chevron-down-icon lucide-chevron-down'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      transition: transform 0.2s ease;
+    }
+
+    .app-header__accordion[open] > &::after {
+      transform: rotate(180deg);
+    }
+  }
+
+  &__subnav {
+    display: grid;
+    gap: 0;
+  }
+
+  &__subnav-section {
+    display: grid;
+    gap: 4px;
+  }
+
+  &__subnav-title {
+    margin: 0 0 2px;
+    padding-left: 14px;
+    font-size: 0.76rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    color: $text-muted;
+  }
+
+  &__sublink {
+    @include nav-entry(26px, 36px, 1px);
+    @include nav-dot(10px, 4px);
+    font-size: 0.92rem;
+
+    &:hover {
+      background: rgba(53, 197, 240, 0.04);
+      color: $brand-strong;
+    }
+
+    &.router-link-active,
+    &.router-link-exact-active {
+      color: $brand-strong;
+      border-left-color: $brand;
+    }
+  }
+
+  &__subnav-divider {
+    height: 1px;
+    margin: 10px 0 8px;
+    background: $border-soft;
+  }
+
+  &__sidebar-note {
     display: grid;
     gap: 8px;
     align-self: end;
     padding-top: 16px;
 
-    .app-sidebar-note__title {
+    &-title {
+      display: inline-flex;
+      width: fit-content;
       font-size: 0.82rem;
       font-weight: 800;
       color: $brand-strong;
-      text-transform: uppercase;
       letter-spacing: 0.08em;
+
+      &:focus-visible {
+        @include focus-ring();
+      }
     }
   }
-}
 
-@media (max-width: 1024px) {
-  .app-header {
+  @media (max-width: 1024px) {
     position: static;
     max-height: none;
     min-height: 0;

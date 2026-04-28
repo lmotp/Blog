@@ -37,7 +37,7 @@ export default defineNuxtConfig({
         },
         {
           name: 'keywords',
-          content: 'Nuxt, Vue, 개발 블로그, CSS, JavaScript, 메모, 아카이브',
+          content: 'Nuxt, Vue, 개발 블로그, CSS, JavaScript, 메모, 작업일지, 읽을 내용',
         },
         {
           property: 'og:site_name',

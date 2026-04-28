@@ -15,22 +15,26 @@
 
 <script setup lang="ts">
 import { useBlogSeo } from '~/composables/useBlogSeo'
+import { resolveRouteSlug } from '~/utils/route'
 
 const route = useRoute()
-const slug = computed(() => {
-  const value = route.params.slug
-  const raw = Array.isArray(value) ? value[0] : value
-  return typeof raw === 'string' ? raw : ''
-})
+const slug = resolveRouteSlug(route.params.slug)
+
+if (!slug) {
+  throw createError({
+    statusCode: 404,
+    statusMessage: '작업일지를 찾을 수 없습니다.',
+  })
+}
 
 const post = await queryCollection('posts')
-  .path(`/posts/${slug.value}`)
+  .path(`/posts/${slug}`)
   .first()
 
 if (!post) {
   throw createError({
     statusCode: 404,
-    statusMessage: '게시물을 찾을 수 없습니다.',
+    statusMessage: '작업일지를 찾을 수 없습니다.',
   })
 }
 

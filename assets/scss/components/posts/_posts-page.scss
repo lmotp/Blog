@@ -1,11 +1,9 @@
 @use "../../settings/tokens" as *;
 @use "../../settings/mixins" as *;
 
-.post-page {
-  @include stack(24px);
-}
-
 .posts-page {
+  @include stack(24px);
+
   &__header {
     @include stack(10px);
   }
@@ -28,77 +26,72 @@
     background: $border-soft;
   }
 
-  &__section-meta {
-    @include meta;
-    margin-top: 6px;
-  }
-
-  &__items {
-    @include list-reset;
-  }
-
-  &__item {
-    @include item-row(18px 0, 8px);
-  }
-
-  &__item-head {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-
-  &__item-link {
-    @include item-link;
-  }
-
-  &__item-lead {
-    margin: 0;
-    color: $text-subtle;
-    line-height: 1.7;
-  }
-
-  &__item-meta {
-    @include meta;
-  }
-
   &__group {
     display: grid;
     gap: 14px;
-    padding-top: 6px;
 
-    &:not(:last-child) {
-      margin-bottom: 30px;
+    &:not(:first-of-type) {
+      margin-top: 26px;
     }
   }
 
   &__group-title {
     margin: 0;
-    color: $foreground;
-    font-size: clamp(1.4rem, 2vw, 2rem);
-    line-height: 1.15;
-    font-weight: 700;
+    color: $text-muted;
+    font-size: clamp(1.25rem, 1.7vw, 1.6rem);
+    line-height: 1.2;
+    font-weight: 500;
   }
 
-  &__outline-list {
+  &__group-outline {
+    padding-left: 16px;
+    border-left: 1px solid $border-soft;
+  }
+
+  &__items {
+    @include list-reset;
     display: grid;
-    gap: 18px;
-    margin: 0;
-    padding-left: 22px;
-    color: $foreground;
-    list-style: disc;
+    gap: 12px;
+    padding-left: 20px;
   }
 
-  &__outline-item {
+  &__item {
     margin: 0;
-    padding: 0;
   }
 
   &__outline-link {
-    @include item-link;
-    font-size: 1.18rem;
-    line-height: 1.45;
-    text-decoration: underline;
-    text-underline-offset: 3px;
+    display: inline-block;
+    max-width: 100%;
+    color: $text-muted;
+    font-size: clamp(1rem, 1.25vw, 1.2rem);
+    line-height: 1.6;
+    font-weight: 500;
+    text-decoration: none;
+    white-space: normal;
+
+    &:hover,
+    &:focus-visible {
+      @include focus-ring();
+      color: $brand-strong;
+    }
+
+    &.router-link-active,
+    &.router-link-exact-active {
+      color: $brand-strong;
+    }
+  }
+
+  &__outline-label {
+    color: inherit;
+    font-weight: 600;
+  }
+
+  &__outline-separator {
+    color: $text-muted;
+  }
+
+  &__outline-title {
+    color: inherit;
   }
 }
 
@@ -148,6 +141,7 @@
     ul {
       padding-left: 14px;
     }
+
     ol {
       padding-left: 18px;
     }
@@ -172,10 +166,8 @@
       color: $brand-strong;
     }
   }
-}
 
-@media (max-width: 1024px) {
-  .post-page {
+  @media (max-width: 1024px) {
     &__article {
       padding: 0;
     }

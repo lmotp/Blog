@@ -63,10 +63,8 @@
   &__note-lead {
     @include meta;
   }
-}
 
-@media (max-width: 1024px) {
-  .home-page {
+  @media (max-width: 1024px) {
     gap: 24px;
   }
 }

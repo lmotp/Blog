@@ -1,4 +1,5 @@
 @use '../../settings/tokens' as *;
+@use '../../settings/mixins' as *;
 
 .base-button {
   display: inline-flex;
@@ -29,13 +30,18 @@
   }
 
   &:focus-visible {
-    outline: 0;
-    box-shadow: 0 0 0 2px $focus-ring;
+    @include focus-ring();
   }
 
   &:disabled {
     opacity: 0.65;
     cursor: wait;
+    box-shadow: none;
+  }
+
+  &[aria-disabled='true'] {
+    opacity: 0.65;
+    cursor: not-allowed;
     box-shadow: none;
   }
 

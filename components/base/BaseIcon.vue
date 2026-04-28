@@ -1,13 +1,15 @@
 <template>
-  <span class="base-icon" :aria-label="title" :style="style" role="img">
+  <span class="base-icon" v-bind="iconProps" :style="style">
     {{ glyph }}
   </span>
 </template>
 
 <script setup lang="ts">
+const iconNames = ['arrowRight', 'chevronDown', 'menu'] as const
+
 const props = withDefaults(
   defineProps<{
-    name: string
+    name: (typeof iconNames)[number]
     size?: number
     title?: string
   }>(),
@@ -17,13 +19,25 @@ const props = withDefaults(
   },
 )
 
-const glyphMap: Record<string, string> = {
+const glyphMap: Record<(typeof iconNames)[number], string> = {
   arrowRight: '→',
   chevronDown: '⌄',
   menu: '☰',
 }
 
-const glyph = computed(() => glyphMap[props.name] ?? '•')
+const glyph = computed(() => glyphMap[props.name])
+const iconProps = computed(() => {
+  if (!props.title) {
+    return {
+      'aria-hidden': true,
+    }
+  }
+
+  return {
+    'aria-label': props.title,
+    role: 'img',
+  }
+})
 const style = computed(() => ({
   fontSize: `${props.size}px`,
 }))

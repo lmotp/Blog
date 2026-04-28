@@ -17,10 +17,17 @@
     gap: 4px;
 
     &-link {
+      display: inline-flex;
+      width: fit-content;
       color: $foreground;
       font-weight: 700;
 
       &:hover {
+        color: $brand-strong;
+      }
+
+      &:focus-visible {
+        @include focus-ring();
         color: $brand-strong;
       }
     }
@@ -135,10 +142,8 @@
     display: grid;
     gap: 8px;
   }
-}
 
-@media (max-width: 1024px) {
-  .about-page {
+  @media (max-width: 1024px) {
     &__chips {
       grid-template-columns: 1fr;
     }

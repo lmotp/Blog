@@ -36,6 +36,12 @@
   font-size: 0.92rem;
 }
 
+@mixin focus-ring($offset: 2px) {
+  outline: 0;
+  outline: 2px solid $focus-ring;
+  outline-offset: $offset;
+}
+
 @mixin item-link {
   color: $foreground;
   font-size: 1.05rem;
@@ -44,6 +50,10 @@
 
   &:hover {
     color: $brand-strong;
+  }
+
+  &:focus-visible {
+    @include focus-ring();
   }
 }
 
@@ -84,6 +94,12 @@
     color 0.18s ease,
     border-color 0.18s ease,
     background 0.18s ease;
+
+  &:focus-visible {
+    @include focus-ring();
+    background: rgba(53, 197, 240, 0.06);
+    color: $brand-strong;
+  }
 }
 
 @mixin nav-dot($left: 8px, $size: 4px) {

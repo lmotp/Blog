@@ -1,7 +1,7 @@
 <template>
-  <BaseCard class="error-page" elevated>
+  <BaseCard class="error-page" elevated role="alert" aria-live="assertive" aria-atomic="true">
     <template #header>
-      <p class="error-page__eyebrow">{{ isNotFound ? '404' : 'Error' }}</p>
+      <p class="error-page__eyebrow">{{ isNotFound ? '404' : '오류' }}</p>
       <h1 class="error-page__title">{{ heading }}</h1>
     </template>
 
@@ -9,9 +9,9 @@
 
     <template #footer>
       <div class="error-page__actions">
-        <BaseButton to="/">Home</BaseButton>
+        <BaseButton to="/">홈으로</BaseButton>
         <BaseButton v-if="!isNotFound" secondary type="button" @click="retryPage">
-          Retry
+          다시 시도
         </BaseButton>
       </div>
     </template>
@@ -32,7 +32,7 @@ const props = defineProps<{
 const isNotFound = computed(() => props.error.statusCode === 404)
 
 const heading = computed(() => {
-  return isNotFound.value ? 'Page Not Found' : 'Something Went Wrong'
+  return isNotFound.value ? '페이지를 찾을 수 없습니다' : '문제가 발생했습니다'
 })
 
 const description = computed(() => {
@@ -40,10 +40,10 @@ const description = computed(() => {
     return '찾으시는 페이지를 찾을 수 없습니다. 주소를 다시 확인하거나 홈으로 돌아가세요.'
   }
 
-  return props.error.statusMessage ?? props.error.message ?? 'Unknown error occurred.'
+  return props.error.statusMessage ?? props.error.message ?? '알 수 없는 오류가 발생했습니다.'
 })
 
-const retryPage = () => {
+const retryPage = (): void => {
   if (import.meta.client) {
     window.location.reload()
   }
