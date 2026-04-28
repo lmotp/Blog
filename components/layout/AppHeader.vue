@@ -1,11 +1,7 @@
 <template>
   <aside class="app-header">
     <div class="app-header__brand">
-      <NuxtLink
-        to="/"
-        class="app-header__brand-mark"
-        :aria-current="isCurrentPath('/') ? 'page' : undefined"
-      >
+      <NuxtLink to="/" class="app-header__brand-mark" :aria-current="isCurrentPath('/') ? 'page' : undefined">
         홈
       </NuxtLink>
       <span class="app-header__brand-subtitle">읽을 내용, 메모, 작업일지를 정리하는 블로그</span>
@@ -118,7 +114,7 @@
 </template>
 
 <script setup lang="ts">
-import { worklogSections } from '~/data/worklog-sections'
+import { worklogSections } from "~/data/worklog-sections";
 
 const route = useRoute();
 
@@ -127,41 +123,35 @@ const memoSubnavId = "memo-subnav";
 const worklogSummaryId = "worklog-summary";
 const worklogSubnavId = "worklog-subnav";
 
-const isMemoExpanded = ref(false)
-const isWorklogExpanded = ref(false)
+const isMemoExpanded = ref(false);
+const isWorklogExpanded = ref(false);
 
 watch(
   () => route.path,
   (path) => {
-    isMemoExpanded.value = path.startsWith('/notes')
-    isWorklogExpanded.value = path.startsWith('/posts')
+    isMemoExpanded.value = path.startsWith("/notes");
+    isWorklogExpanded.value = path.startsWith("/posts");
   },
   { immediate: true },
-)
+);
 
 function isCurrentPath(path: string): boolean {
-  return route.path === path
+  return route.path === path;
 }
 
 function syncMemoExpanded(event: Event): void {
-  const target = event.currentTarget
+  const target = event.currentTarget;
 
   if (target instanceof HTMLDetailsElement) {
-    isMemoExpanded.value = target.open
-    if (target.open) {
-      isWorklogExpanded.value = false
-    }
+    isMemoExpanded.value = target.open;
   }
 }
 
 function syncWorklogExpanded(event: Event): void {
-  const target = event.currentTarget
+  const target = event.currentTarget;
 
   if (target instanceof HTMLDetailsElement) {
-    isWorklogExpanded.value = target.open
-    if (target.open) {
-      isMemoExpanded.value = false
-    }
+    isWorklogExpanded.value = target.open;
   }
 }
 </script>
