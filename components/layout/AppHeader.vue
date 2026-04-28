@@ -148,6 +148,9 @@ function syncMemoExpanded(event: Event): void {
 
   if (target instanceof HTMLDetailsElement) {
     isMemoExpanded.value = target.open
+    if (target.open) {
+      isWorklogExpanded.value = false
+    }
   }
 }
 
@@ -156,6 +159,9 @@ function syncWorklogExpanded(event: Event): void {
 
   if (target instanceof HTMLDetailsElement) {
     isWorklogExpanded.value = target.open
+    if (target.open) {
+      isMemoExpanded.value = false
+    }
   }
 }
 </script>
