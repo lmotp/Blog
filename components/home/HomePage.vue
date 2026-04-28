@@ -56,7 +56,7 @@ type ReadingQueuePreviewItem = {
 
 type NoteLink = {
   description: string
-  path: '/notes/css' | '/notes/javascript' | '/notes/vue'
+  path: '/notes/css' | '/notes/javascript' | '/notes/react-component-patterns' | '/notes/react-time-complexity' | '/notes/vue'
   title: string
 }
 
@@ -82,6 +82,16 @@ const noteLinks: readonly NoteLink[] = [
     description: '상태, 참조, 복사, 데이터 흐름처럼 동작 원리를 정리합니다.',
     path: '/notes/javascript',
     title: 'JavaScript 메모',
+  },
+  {
+    description: 'Compound, headless, controlled, uncontrolled 패턴을 정리합니다.',
+    path: '/notes/react-component-patterns',
+    title: 'React 컴포넌트 패턴 메모',
+  },
+  {
+    description: '렌더링 경로에서 시간복잡도를 보는 기준을 정리합니다.',
+    path: '/notes/react-time-complexity',
+    title: 'React에서 시간복잡도 이해하기',
   },
   {
     description: 'props, emit, slot, 컴포넌트 구조를 정리합니다.',

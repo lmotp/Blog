@@ -33,6 +33,20 @@
             JavaScript 메모
           </NuxtLink>
           <NuxtLink
+            to="/notes/react-component-patterns"
+            class="app-header__sublink"
+            :aria-current="isCurrentPath('/notes/react-component-patterns') ? 'page' : undefined"
+          >
+            React 메모
+          </NuxtLink>
+          <NuxtLink
+            to="/notes/react-time-complexity"
+            class="app-header__sublink"
+            :aria-current="isCurrentPath('/notes/react-time-complexity') ? 'page' : undefined"
+          >
+            React 시간복잡도
+          </NuxtLink>
+          <NuxtLink
             to="/notes/v8-optimization"
             class="app-header__sublink"
             :aria-current="isCurrentPath('/notes/v8-optimization') ? 'page' : undefined"

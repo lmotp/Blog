@@ -4,7 +4,7 @@
       <p class="notes-index-page__eyebrow">메모</p>
       <h1 class="notes-index-page__title">카테고리별 메모</h1>
       <p class="notes-index-page__lead">
-        메모는 한 페이지에 합치지 않고 CSS, JavaScript, Vue로 나누어 정리합니다.
+        메모는 한 페이지에 합치지 않고 CSS, JavaScript, React, Vue로 나누어 정리합니다.
       </p>
     </header>
 
@@ -27,13 +27,13 @@
 </template>
 
 <script setup lang="ts">
-type NoteCategory = 'CSS' | 'JavaScript' | 'Vue'
+type NoteCategory = 'CSS' | 'JavaScript' | 'React' | 'Vue'
 
 interface NoteSummary {
   category: NoteCategory
   date: string
   description: string
-  path: '/notes/css' | '/notes/javascript' | '/notes/vue'
+  path: '/notes/css' | '/notes/javascript' | '/notes/react-component-patterns' | '/notes/vue'
   title: string
 }
 
@@ -41,7 +41,7 @@ interface NoteCategoryCard {
   count: number
   description: string
   label: NoteCategory
-  path: '/notes/css' | '/notes/javascript' | '/notes/vue'
+  path: '/notes/css' | '/notes/javascript' | '/notes/react-component-patterns' | '/notes/vue'
   title: string
 }
 
@@ -78,6 +78,13 @@ const categories = computed<readonly NoteCategoryCard[]>(() => {
       description: '상태, 참조, 복사, 데이터 흐름처럼 동작 원리를 정리합니다.',
       path: '/notes/javascript',
       count: categoryMap.get('JavaScript')?.length ?? 0,
+    },
+    {
+      label: 'React',
+      title: 'React 메모',
+      description: '컴포넌트 패턴, 상태 소유권, 조합 방식을 정리합니다.',
+      path: '/notes/react-component-patterns',
+      count: categoryMap.get('React')?.length ?? 0,
     },
     {
       label: 'Vue',
