@@ -28,10 +28,15 @@
 
   &__group {
     display: grid;
-    gap: 14px;
+    gap: 16px;
+    padding: 24px;
+    border: 1px solid $border-soft;
+    border-radius: $rounded-lg;
+    background: rgba(255, 255, 255, 0.86);
+    box-shadow: $shadow-card;
 
     &:not(:first-of-type) {
-      margin-top: 26px;
+      margin-top: 18px;
     }
   }
 
@@ -45,7 +50,7 @@
 
   &__group-outline {
     padding-left: 16px;
-    border-left: 1px solid $border-soft;
+    border-left: 2px solid $border-soft;
   }
 
   &__items {
@@ -65,7 +70,7 @@
     color: $text-muted;
     font-size: clamp(1rem, 1.25vw, 1.2rem);
     line-height: 1.6;
-    font-weight: 500;
+    font-weight: 600;
     text-decoration: none;
     white-space: normal;
 

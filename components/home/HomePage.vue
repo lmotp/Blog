@@ -7,6 +7,11 @@
       <p class="home-page__summary">
         읽을 내용은 링크로, 정리는 메모로, 기록은 작업일지로 나눠서 관리합니다.
       </p>
+
+      <div class="home-page__actions">
+        <BaseButton to="/posts/reading">읽을 내용 보기</BaseButton>
+        <BaseButton to="/posts" secondary on-dark>작업일지 보기</BaseButton>
+      </div>
     </header>
 
     <section class="home-page__section" aria-labelledby="home-page-reading-title">
@@ -45,6 +50,7 @@
 </template>
 
 <script setup lang="ts">
+import BaseButton from '~/components/base/BaseButton.vue'
 import PostLinkItem from '~/components/posts/PostLinkItem.vue'
 import { postQueueCategories } from '~/data/post-queue'
 

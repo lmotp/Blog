@@ -2,6 +2,14 @@
 
 Nuxt 3 basic starter setup.
 
+## Design System
+
+`DESIGN.md` is the source of truth for the repository's visual system. When the implementation and the design spec differ, update the code to follow [`DESIGN.md`](./DESIGN.md).
+
+```bash
+npm run design:lint
+```
+
 ## Setup
 
 ```bash

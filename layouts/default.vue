@@ -8,7 +8,7 @@
         <slot />
       </main>
 
-      <!-- <LayoutAppFooter /> -->
+      <LayoutAppFooter />
     </div>
   </div>
 </template>

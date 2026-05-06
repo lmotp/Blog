@@ -3,12 +3,16 @@
 
 .about-page {
   display: grid;
-  gap: 28px;
+  gap: 32px;
 
   &__hero {
     display: grid;
     gap: 12px;
-    padding: 0 0 8px;
+    padding: 32px;
+    border: 1px solid $border-soft;
+    border-radius: $rounded-xl;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: $shadow-card;
   }
 
   &__contact {
@@ -61,7 +65,11 @@
   &__section {
     display: grid;
     gap: 24px;
-    padding-top: 6px;
+    padding: 28px;
+    border: 1px solid $border-soft;
+    border-radius: $rounded-lg;
+    background: rgba(255, 255, 255, 0.86);
+    box-shadow: $shadow-card;
   }
 
   &__section-head {
@@ -85,14 +93,6 @@
   &__chips {
     @include list-reset;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-
-  &__chip {
-    margin: 0;
-    padding: 14px 0;
-    color: $text-subtle;
-    font-size: 0.98rem;
-    font-weight: 700;
   }
 
   &__experience-list {
@@ -144,6 +144,11 @@
   }
 
   @media (max-width: 1024px) {
+    &__hero,
+    &__section {
+      padding: 24px 20px;
+    }
+
     &__chips {
       grid-template-columns: 1fr;
     }

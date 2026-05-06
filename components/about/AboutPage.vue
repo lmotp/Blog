@@ -38,8 +38,10 @@
       </div>
 
       <ul class="about-page__chips">
-        <li v-for="skill in skills" :key="skill" class="about-page__chip">
-          {{ skill }}
+        <li v-for="skill in skills" :key="skill">
+          <BaseBadge tone="lavender">
+            {{ skill }}
+          </BaseBadge>
         </li>
       </ul>
     </section>
@@ -72,6 +74,7 @@
 </template>
 
 <script setup lang="ts">
+import BaseBadge from '~/components/base/BaseBadge.vue'
 import BaseButton from '~/components/base/BaseButton.vue'
 
 interface Experience {

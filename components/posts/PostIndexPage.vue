@@ -4,7 +4,7 @@
       <p class="posts-page__eyebrow">작업일지</p>
       <h1 class="posts-page__title">작업일지</h1>
       <p class="posts-page__lead">
-        프로젝트를 하면서 남긴 기록을 작업내용과 다른작업으로 나누고, 각각 01/02/03 순서로 모아둡니다.
+        Figma에서 DESIGN.md를 추출하고, 변경 알림과 연동 흐름까지 이어지는 기록을 모아둡니다.
       </p>
     </header>
 

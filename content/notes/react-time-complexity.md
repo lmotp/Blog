@@ -75,21 +75,25 @@ function List({ items, selectedIds }: { items: Array<{ id: number; name: string 
 배열을 한 번만 훑는 작업은 대표적인 `O(n)`입니다.
 
 <BaseCard title="한 번 순회하기">
+
 ```tsx
 const numbers = [1, 2, 3, 4, 5]
 
 const sum = numbers.reduce((acc, cur) => acc + cur, 0)
 ```
+
 </BaseCard>
 
 또는:
 
 <BaseCard title="map도 O(n)">
+
 ```tsx
 const names = ['A', 'B', 'C']
 
 const upperNames = names.map((name) => name.toUpperCase())
 ```
+
 </BaseCard>
 
 ### React에서의 의미
@@ -127,11 +131,13 @@ function SearchResult({
 정렬은 보통 `O(n log n)`입니다.
 
 <BaseCard title="정렬">
+
 ```tsx
 const scores = [42, 12, 87, 33, 5]
 
 const sortedScores = [...scores].sort((a, b) => a - b)
 ```
+
 </BaseCard>
 
 ### React에서의 의미
@@ -139,6 +145,7 @@ const sortedScores = [...scores].sort((a, b) => a - b)
 렌더링 중에 매번 정렬하면 데이터가 커질수록 비용이 커집니다. 정렬 결과가 자주 바뀌지 않는다면 계산을 분리하는 것이 좋습니다.
 
 <BaseCard title="정렬 결과를 매 렌더마다 만들기">
+
 ```tsx
 function ScoreList({
   items,
@@ -156,6 +163,7 @@ function ScoreList({
   )
 }
 ```
+
 </BaseCard>
 
 ## `O(n^2)` 예시
@@ -163,6 +171,7 @@ function ScoreList({
 중첩 반복문은 대표적인 `O(n^2)`입니다.
 
 <BaseCard title="중첩 순회">
+
 ```tsx
 const a = [1, 2, 3]
 const b = [2, 3, 4]
@@ -176,6 +185,7 @@ for (const x of a) {
   }
 }
 ```
+
 </BaseCard>
 
 ### React에서 자주 나오는 형태
@@ -183,6 +193,7 @@ for (const x of a) {
 배열 안에 포함 여부를 매번 확인하는 패턴은 쉽게 비효율적으로 변합니다.
 
 <BaseCard title="includes 반복">
+
 ```tsx
 function SelectedList({
   items,
@@ -202,6 +213,7 @@ function SelectedList({
   )
 }
 ```
+
 </BaseCard>
 
 이 코드는 `filter` 안에서 `includes`를 매번 호출하므로, 데이터가 커지면 `O(n^2)`에 가까운 비용이 될 수 있습니다.
@@ -211,6 +223,7 @@ function SelectedList({
 존재 여부만 확인하면 될 때는 `Set`이 좋습니다.
 
 <BaseCard title="Set으로 바꾸기">
+
 ```tsx
 function SelectedList({
   items,
@@ -231,6 +244,7 @@ function SelectedList({
   )
 }
 ```
+
 </BaseCard>
 
 이 방식은 `selectedIds`를 `Set`으로 바꾸는 비용 `O(m)`, `items`를 한 번 훑는 비용 `O(n)`으로 볼 수 있어서 전체적으로 더 낫습니다.
@@ -240,6 +254,7 @@ function SelectedList({
 키로 값까지 꺼내야 하면 `Map`이 적합합니다.
 
 <BaseCard title="Map 조회">
+
 ```tsx
 const userMap = new Map([
   [1, { id: 1, name: 'A' }],
@@ -249,6 +264,7 @@ const userMap = new Map([
 const ids = [1, 2]
 const users = ids.map((id) => userMap.get(id))
 ```
+
 </BaseCard>
 
 `Set`은 있냐 없냐를 볼 때, `Map`은 키에 매핑된 값을 꺼낼 때 사용합니다.
@@ -258,6 +274,7 @@ const users = ids.map((id) => userMap.get(id))
 ### 1. 렌더링 경로 안에서 무거운 계산을 반복하지 않기
 
 <BaseCard title="렌더마다 반복되는 계산">
+
 ```tsx
 function Component({
   items,
@@ -273,15 +290,18 @@ function Component({
   return <div>{filtered.length}</div>
 }
 ```
+
 </BaseCard>
 
 ### 2. 반복 조회는 배열보다 `Set` / `Map`으로 바꾸기
 
 <BaseCard title="조회 구조 바꾸기">
+
 ```tsx
 const idSet = new Set(selectedIds)
 idSet.has(targetId)
 ```
+
 </BaseCard>
 
 ### 3. 큰 리스트는 DOM까지 고려하기
@@ -293,6 +313,7 @@ idSet.has(targetId)
 중첩 배열을 계속 탐색하는 대신, `byId` 형태로 바꾸면 중복 순회를 줄일 수 있습니다.
 
 <BaseCard title="정규화된 상태">
+
 ```tsx
 const state = {
   usersById: {
@@ -306,6 +327,7 @@ const state = {
   },
 }
 ```
+
 </BaseCard>
 
 ## 정리

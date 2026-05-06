@@ -1,10 +1,48 @@
-@use '../../settings/tokens' as *;
+@use "../../settings/tokens" as *;
+@use "../../settings/mixins" as *;
 
 .app-footer {
-  padding: 12px 0 0;
+  border-top: 1px solid $border-soft;
+  background: $surface-elevated;
   color: $text-muted;
+
+  &__inner {
+    width: min(100%, 1080px);
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: $space-md;
+    padding: $space-xl $space-section-sm $space-section-sm;
+  }
 
   &__text {
     margin: 0;
+    color: $text-muted;
+    font-size: 0.88rem;
+    line-height: 1.6;
+  }
+
+  &__link {
+    color: $text-muted;
+    font-size: 0.88rem;
+    line-height: 1.5;
+
+    &:hover {
+      color: $brand-strong;
+    }
+
+    &:focus-visible {
+      @include focus-ring();
+      color: $brand-strong;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    &__inner {
+      align-items: flex-start;
+      flex-direction: column;
+      padding: $space-lg $space-lg $space-xxxl;
+    }
   }
 }

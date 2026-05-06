@@ -10,36 +10,20 @@ export type WorklogSection = Readonly<{
 
 export const worklogSections = [
   {
-    title: '작업내용',
+    title: '추출흐름',
     items: [
       {
-        label: '01-작업내용',
-        path: '/posts/worklog-header-nesting-a11y',
-      },
-      {
-        label: '02-작업내용',
-        path: '/posts/worklog-content-structure',
-      },
-      {
-        label: '03-작업내요',
-        path: '/posts/worklog-structure-routing',
+        label: '문서추출',
+        path: '/posts/worklog-figma-designmd-export',
       },
     ],
   },
   {
-    title: '다른작업',
+    title: '연동흐름',
     items: [
       {
-        label: '01-다른작업',
-        path: '/posts/worklog-a11y-typescript-rules',
-      },
-      {
-        label: '02-다른작업',
-        path: '/posts/worklog-v8-note-separation',
-      },
-      {
-        label: '03-다른작업',
-        path: '/posts/worklog-content-routing-structure',
+        label: '슬랙연동',
+        path: '/posts/worklog-figma-designmd-slack-sync',
       },
     ],
   },

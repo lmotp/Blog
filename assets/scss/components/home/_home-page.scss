@@ -3,31 +3,52 @@
 
 .home-page {
   display: grid;
-  gap: 30px;
+  gap: 32px;
 
   &__hero {
     display: grid;
-    gap: 10px;
-    padding: 0 0 6px;
+    gap: 14px;
+    padding: 40px;
+    border-radius: $rounded-xl;
+    background:
+      radial-gradient(circle at top right, rgba(255, 100, 200, 0.18), transparent 24%),
+      radial-gradient(circle at bottom left, rgba(86, 69, 212, 0.22), transparent 28%),
+      $brand-navy;
+    box-shadow: $shadow-float;
   }
 
   &__eyebrow,
   &__section-eyebrow {
-    @include eyebrow();
+    @include eyebrow(rgba(255, 255, 255, 0.72));
   }
 
   &__title {
     @include page-title(clamp(2.4rem, 4.2vw, 3.7rem), 1);
+    max-width: 12ch;
+    color: #ffffff;
   }
 
   &__lead,
   &__summary {
     @include lead(66ch, 1.02rem);
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  &__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding-top: 4px;
   }
 
   &__section {
     display: grid;
     gap: 18px;
+    padding: 28px;
+    border: 1px solid $border-soft;
+    border-radius: $rounded-lg;
+    background: rgba(255, 255, 255, 0.86);
+    box-shadow: $shadow-card;
   }
 
   &__section-head {
@@ -51,13 +72,14 @@
 
   &__note-item {
     display: grid;
-    gap: 4px;
+    gap: 6px;
+    padding: 16px 18px;
+    border-radius: $rounded-lg;
+    background: $brand-lavender;
   }
 
   &__note-link {
     @include item-link;
-    text-decoration: underline;
-    text-underline-offset: 3px;
   }
 
   &__note-lead {
@@ -66,5 +88,10 @@
 
   @media (max-width: 1024px) {
     gap: 24px;
+
+    &__hero,
+    &__section {
+      padding: 24px 20px;
+    }
   }
 }

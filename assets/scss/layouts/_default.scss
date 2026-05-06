@@ -5,21 +5,23 @@
   position: relative;
   min-height: 100svh;
   display: grid;
-  grid-template-columns: 292px minmax(0, 1fr);
+  grid-template-columns: 304px minmax(0, 1fr);
   align-items: stretch;
+  background: $surface-soft;
 
   .skip-link {
     position: absolute;
-    left: 18px;
-    top: 12px;
+    left: $space-lg;
+    top: $space-sm;
     z-index: 40;
-    padding: 10px 14px;
+    padding: $space-sm $space-md;
     border: 1px solid $brand;
+    border-radius: $rounded-md;
     background: $surface-elevated;
     color: $brand-strong;
     font-size: 0.92rem;
     font-weight: 700;
-    transform: translateY(-180%);
+    transform: translateY(calc(-100% - #{$space-sm}));
     transition: transform 0.18s ease;
 
     &:focus-visible {
@@ -31,15 +33,17 @@
   .app-content {
     min-width: 0;
     display: grid;
+    grid-template-rows: minmax(0, 1fr) auto;
     gap: 0;
     align-content: start;
+    background: linear-gradient(180deg, $surface-soft 0%, $surface 100%);
   }
 
   .app-main {
-    width: 100%;
-    margin: 0;
+    width: min(100%, 1080px);
+    margin: 0 auto;
     min-width: 0;
-    padding: 48px 40px 56px;
+    padding: $space-section-sm $space-section-sm $space-section;
   }
 
   @media (max-width: 1024px) {
@@ -47,8 +51,8 @@
     padding: 0;
 
     .skip-link {
-      left: 12px;
-      top: 10px;
+      left: $space-sm;
+      top: $space-sm;
     }
 
     .app-content {
@@ -56,7 +60,8 @@
     }
 
     .app-main {
-      padding: 24px 18px 40px;
+      width: 100%;
+      padding: $space-xl $space-lg $space-section-sm;
       border-left: 0;
     }
   }

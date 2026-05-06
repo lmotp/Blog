@@ -8,6 +8,6 @@ import { useBlogSeo } from '~/composables/useBlogSeo'
 
 useBlogSeo({
   title: '작업일지',
-  description: '프로젝트를 하면서 남긴 기록을 작업내용과 다른작업으로 나누어 모아둔 페이지입니다.',
+  description: 'Figma에서 DESIGN.md를 추출하고 연동 흐름까지 정리한 작업일지 페이지입니다.',
 })
 </script>

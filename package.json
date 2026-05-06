@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "nuxt dev",
     "build": "nuxt build",
+    "design:lint": "npx @google/design.md lint DESIGN.md",
     "generate": "nuxt generate",
     "test": "vitest run",
     "preview": "nuxt preview",

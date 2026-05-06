@@ -136,6 +136,7 @@ const memoSummaryId = "memo-summary";
 const memoSubnavId = "memo-subnav";
 const worklogSummaryId = "worklog-summary";
 const worklogSubnavId = "worklog-subnav";
+const worklogPaths = worklogSections.flatMap((section) => section.items.map((item) => item.path));
 
 const isMemoExpanded = ref(false);
 const isWorklogExpanded = ref(false);
@@ -144,7 +145,7 @@ watch(
   () => route.path,
   (path) => {
     isMemoExpanded.value = path.startsWith("/notes");
-    isWorklogExpanded.value = path.startsWith("/posts");
+    isWorklogExpanded.value = path === "/posts" || worklogPaths.includes(path);
   },
   { immediate: true },
 );

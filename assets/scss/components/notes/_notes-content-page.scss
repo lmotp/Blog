@@ -27,7 +27,12 @@
 
   &__article {
     @include prose-stack;
+    padding: 28px;
+    border: 1px solid $border-soft;
+    border-radius: $rounded-lg;
+    background: rgba(255, 255, 255, 0.9);
     color: $foreground;
+    box-shadow: $shadow-card;
 
     > :first-child {
       margin-top: 0;
@@ -75,9 +80,10 @@
 
     code {
       padding: 0.15em 0.4em;
-      border-radius: 4px;
-      background: rgba(53, 197, 240, 0.12);
-      color: $brand-strong;
+      border-radius: $rounded-sm;
+      background: rgba(86, 69, 212, 0.1);
+      color: $text-primary;
+      font-weight: 600;
       font-size: 0.95em;
     }
 
@@ -85,19 +91,28 @@
       overflow-x: auto;
       margin: 0;
       padding: 18px;
-      border-radius: 16px;
-      background: #f5fbfd;
-      color: $foreground;
-      line-height: 1.75;
+      border-radius: $rounded-lg;
+      border: 1px solid rgba(86, 69, 212, 0.16);
+      background: linear-gradient(180deg, #f7f4ff 0%, #f3f0ff 100%);
+      color: $text-primary;
+      line-height: 1.7;
       white-space: pre;
+
+      code {
+        padding: 0;
+        border-radius: 0;
+        background: transparent;
+        color: inherit;
+        font-weight: 500;
+      }
     }
 
     blockquote {
       margin: 0;
       padding: 14px 18px;
-      border-left: 3px solid rgba(53, 197, 240, 0.35);
+      border-left: 3px solid rgba(86, 69, 212, 0.35);
       color: $text-subtle;
-      background: rgba(53, 197, 240, 0.04);
+      background: rgba(86, 69, 212, 0.04);
     }
 
     .base-card {
