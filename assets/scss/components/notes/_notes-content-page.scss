@@ -27,12 +27,9 @@
 
   &__article {
     @include prose-stack;
-    padding: 28px;
-    border: 1px solid $border-soft;
-    border-radius: $rounded-lg;
-    background: rgba(255, 255, 255, 0.9);
+    gap: 32px;
+    max-width: 74ch;
     color: $foreground;
-    box-shadow: $shadow-card;
 
     > :first-child {
       margin-top: 0;
@@ -116,11 +113,7 @@
     }
 
     .base-card {
-      margin-top: 4px;
-    }
-
-    .base-card + .base-card {
-      margin-top: 0;
+      margin-top: 24px;
     }
   }
 }

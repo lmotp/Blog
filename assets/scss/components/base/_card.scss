@@ -2,20 +2,22 @@
 
 .base-card {
   display: grid;
-  gap: $space-md;
-  padding: $space-xl;
-  border: 1px solid $color-hairline;
-  border-radius: $rounded-lg;
-  background: $color-canvas;
+  gap: $space-lg;
   color: $color-charcoal;
-  box-shadow: none;
 
   &--elevated {
+    padding: $space-xl;
+    border: 1px solid $color-hairline;
+    border-radius: $rounded-lg;
+    background: $color-canvas;
     box-shadow: $shadow-card;
   }
 
   &--base {
-    padding: $space-xl;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
   }
 
   &--feature,
@@ -38,12 +40,6 @@
 
   &--pricing {
     gap: $space-xl;
-  }
-
-  &--tone-canvas {
-    background: $color-canvas;
-    color: $color-charcoal;
-    border-color: $color-hairline;
   }
 
   &--tone-peach {
@@ -92,7 +88,7 @@
   &__body,
   &__footer {
     display: grid;
-    gap: 10px;
+    gap: $space-md;
   }
 
   &__title {
