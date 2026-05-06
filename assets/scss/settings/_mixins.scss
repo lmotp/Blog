@@ -5,21 +5,36 @@
   gap: $gap;
 }
 
-@mixin eyebrow($color: $brand-strong, $size: 0.78rem) {
+@mixin eyebrow($color: $text-muted, $size: 0.76rem) {
   margin: 0;
   color: $color;
   font-size: $size;
-  font-weight: 800;
+  font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
 @mixin page-title($size: clamp(2.4rem, 4vw, 3.6rem), $line-height: 1.08) {
   margin: 0;
-  color: $foreground;
+  color: $text-primary;
   font-size: $size;
   line-height: $line-height;
-  font-weight: 800;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+@mixin page-header($gap: $space-sm, $max-width: 72ch) {
+  display: grid;
+  gap: $gap;
+  max-width: $max-width;
+}
+
+@mixin section-panel($padding: $space-xxl, $radius: $rounded-lg) {
+  border: 1px solid $border-soft;
+  border-radius: $radius;
+  background: $surface-elevated;
+  box-shadow: $shadow-card;
+  padding: $padding;
 }
 
 @mixin lead($max-width: 68ch, $size: 1rem) {
@@ -27,26 +42,26 @@
   max-width: $max-width;
   color: $text-subtle;
   font-size: $size;
-  line-height: 1.8;
+  line-height: 1.7;
 }
 
 @mixin meta {
   margin: 0;
   color: $text-muted;
-  font-size: 0.92rem;
+  font-size: 0.88rem;
 }
 
 @mixin focus-ring($offset: 2px) {
-  outline: 0;
-  outline: 2px solid $focus-ring;
+  outline: 2px solid transparent;
   outline-offset: $offset;
+  box-shadow: 0 0 0 3px $focus-ring;
 }
 
 @mixin item-link {
-  color: $foreground;
+  color: $text-primary;
   font-size: 1.05rem;
-  line-height: 1.6;
-  font-weight: 700;
+  line-height: 1.55;
+  font-weight: 600;
 
   &:hover {
     color: $brand-strong;
@@ -81,15 +96,25 @@
   line-height: 1.85;
 }
 
+@mixin prose {
+  @include prose-stack;
+
+  p,
+  li {
+    @include prose-text;
+  }
+}
+
 @mixin nav-entry($padding-left: 18px, $height: 42px, $border-width: 2px) {
   position: relative;
   min-height: $height;
   padding: 9px 10px 9px $padding-left;
-  border: 0;
+  border: 1px solid transparent;
+  border-radius: $rounded-md;
   border-left: $border-width solid transparent;
   background: transparent;
   color: $text-subtle;
-  font-weight: 700;
+  font-weight: 600;
   transition:
     color 0.18s ease,
     border-color 0.18s ease,
@@ -97,7 +122,7 @@
 
   &:focus-visible {
     @include focus-ring();
-    background: rgba(53, 197, 240, 0.06);
+    background: rgba(86, 69, 212, 0.08);
     color: $brand-strong;
   }
 }
@@ -112,7 +137,7 @@
     height: $size;
     border-radius: 9999px;
     transform: translateY(-50%);
-    background: rgba(53, 197, 240, 0.2);
+    background: rgba(86, 69, 212, 0.16);
     transition: background 0.18s ease;
   }
 
