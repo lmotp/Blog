@@ -11,22 +11,33 @@
 </template>
 
 <script setup lang="ts">
+type ButtonVariant = 'primary' | 'secondary' | 'ghost' | 'link'
+
 const props = withDefaults(
   defineProps<{
     disabled?: boolean
+    onDark?: boolean
     secondary?: boolean
     to?: string
     type?: 'button' | 'submit' | 'reset'
+    variant?: ButtonVariant
   }>(),
   {
     disabled: false,
+    onDark: false,
     secondary: false,
     type: 'button',
+    variant: 'primary',
   },
+)
+
+const resolvedVariant = computed<ButtonVariant>(() =>
+  props.secondary ? 'secondary' : props.variant,
 )
 
 const buttonClass = computed(() => [
   'base-button',
-  props.secondary ? 'base-button--secondary' : null,
+  `base-button--${resolvedVariant.value}`,
+  props.onDark ? 'base-button--on-dark' : null,
 ])
 </script>

@@ -1,0 +1,47 @@
+@use '../../settings/tokens' as *;
+
+.base-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 24px;
+  padding: 2px 8px;
+  border-radius: $rounded-sm;
+  background: $color-card-tint-lavender;
+  color: $color-brand-purple-800;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  line-height: 1.4;
+  white-space: nowrap;
+
+  &--purple {
+    padding: 4px 10px;
+    border-radius: $rounded-full;
+    background: $color-primary;
+    color: $color-on-primary;
+  }
+
+  &--pink {
+    padding: 4px 10px;
+    border-radius: $rounded-full;
+    background: $color-card-tint-rose;
+    color: $color-brand-pink-deep;
+  }
+
+  &--orange {
+    padding: 4px 10px;
+    border-radius: $rounded-full;
+    background: $color-card-tint-peach;
+    color: $color-brand-orange-deep;
+  }
+
+  &--green {
+    background: $color-card-tint-mint;
+    color: $color-charcoal;
+  }
+
+  &--lavender {
+    background: $color-card-tint-lavender;
+    color: $color-brand-purple-800;
+  }
+}

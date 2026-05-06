@@ -1,33 +1,105 @@
 @use '../../settings/tokens' as *;
 
 .base-card {
-  padding: 0;
-  border-radius: 0;
-  background: transparent;
-  border: 0;
-  box-shadow: none;
   display: grid;
-  gap: 10px;
-
-  &:hover {
-    background: transparent;
-  }
+  gap: $space-md;
+  padding: $space-xl;
+  border: 1px solid $color-hairline;
+  border-radius: $rounded-lg;
+  background: $color-canvas;
+  color: $color-charcoal;
+  box-shadow: none;
 
   &--elevated {
-    background: transparent;
+    box-shadow: $shadow-card;
+  }
+
+  &--base {
+    padding: $space-xl;
+  }
+
+  &--feature,
+  &--testimonial,
+  &--pricing {
+    padding: $space-xxl;
+  }
+
+  &--template {
+    padding: $space-lg;
+  }
+
+  &--feature {
+    gap: $space-lg;
+  }
+
+  &--template {
+    gap: $space-sm;
+  }
+
+  &--pricing {
+    gap: $space-xl;
+  }
+
+  &--tone-canvas {
+    background: $color-canvas;
+    color: $color-charcoal;
+    border-color: $color-hairline;
+  }
+
+  &--tone-peach {
+    background: $color-card-tint-peach;
+    color: $color-charcoal;
+    border-color: transparent;
+  }
+
+  &--tone-rose {
+    background: $color-card-tint-rose;
+    color: $color-charcoal;
+    border-color: transparent;
+  }
+
+  &--tone-mint {
+    background: $color-card-tint-mint;
+    color: $color-charcoal;
+    border-color: transparent;
+  }
+
+  &--tone-lavender {
+    background: $color-card-tint-lavender;
+    color: $color-charcoal;
+    border-color: transparent;
+  }
+
+  &--tone-sky {
+    background: $color-card-tint-sky;
+    color: $color-charcoal;
+    border-color: transparent;
+  }
+
+  &--tone-yellow {
+    background: $color-card-tint-yellow;
+    color: $color-charcoal;
+    border-color: transparent;
+  }
+
+  &--tone-cream {
+    background: $color-card-tint-cream;
+    color: $color-charcoal;
+    border-color: transparent;
   }
 
   &__header,
+  &__body,
   &__footer {
     display: grid;
-    gap: 8px;
+    gap: 10px;
   }
 
   &__title {
     margin: 0;
-    color: $foreground;
-    font-size: 1rem;
+    color: inherit;
+    font-size: 1.08rem;
     line-height: 1.4;
-    font-weight: 700;
+    font-weight: 600;
   }
 }

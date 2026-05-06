@@ -17,18 +17,35 @@
 </template>
 
 <script setup lang="ts">
+type CardVariant = 'base' | 'feature' | 'template' | 'testimonial' | 'pricing'
+type CardTone =
+  | 'canvas'
+  | 'peach'
+  | 'rose'
+  | 'mint'
+  | 'lavender'
+  | 'sky'
+  | 'yellow'
+  | 'cream'
+
 const props = withDefaults(
   defineProps<{
-    title?: string
     elevated?: boolean
+    title?: string
+    tone?: CardTone
+    variant?: CardVariant
   }>(),
   {
     elevated: false,
+    tone: 'canvas',
+    variant: 'base',
   },
 )
 
 const cardClass = computed(() => [
   'base-card',
+  `base-card--${props.variant}`,
+  `base-card--tone-${props.tone}`,
   props.elevated ? 'base-card--elevated' : null,
 ])
 </script>
